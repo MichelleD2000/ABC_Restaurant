@@ -6,15 +6,55 @@
     <title>List Products</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
+        body {
+            background-color: #000; /* Black background for the page */
+            color: #fff; /* White text color */
+        }
         .container {
             margin-top: 50px;
         }
         .table {
             margin-top: 20px;
+            color: #fff; /* White text color for the table */
+        }
+        .table thead {
+            background-color: #D4AF37; /* Gold header background */
+            color: #000; /* Black text for the header */
+        }
+        .table tbody tr:nth-child(even) {
+            background-color: #333; /* Dark grey background for even rows */
+        }
+        .table tbody tr:nth-child(odd) {
+            background-color: #444; /* Slightly lighter grey for odd rows */
         }
         .product-image {
             width: 100px; /* Adjust as needed */
             height: auto; /* Maintain aspect ratio */
+            border: 2px solid #D4AF37; /* Gold border around images */
+        }
+        .btn {
+            margin: 2px; /* Add some spacing between buttons */
+        }
+        .btn-primary {
+            background-color: #D4AF37; /* Gold color for primary button */
+            border-color: #D4AF37; /* Gold border */
+        }
+        .btn-primary:hover {
+            background-color: #b09f3f; /* Slightly darker gold for hover */
+        }
+        .btn-warning {
+            background-color: #ffc107; /* Bootstrap warning button color */
+            border-color: #ffc107; /* Border color */
+        }
+        .btn-warning:hover {
+            background-color: #e0a800; /* Darker yellow for hover */
+        }
+        .btn-danger {
+            background-color: #dc3545; /* Bootstrap danger button color */
+            border-color: #dc3545; /* Border color */
+        }
+        .btn-danger:hover {
+            background-color: #c82333; /* Darker red for hover */
         }
     </style>
 </head>

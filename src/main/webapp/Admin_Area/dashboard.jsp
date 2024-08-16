@@ -11,30 +11,24 @@
    <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
         <div class="side-header">
-            <h3>M<span>odern</span></h3>
+            <h3><span>ABC</span></h3>
         </div>
         <jsp:include page="./sidebar.jsp" />
-       
+    </div>
+   
     <div class="main-content">
-        
-       
         <jsp:include page="./navbar.jsp" />
         
         <main>
-            
-            <div class="page-header">
-                <h1>Dashboard</h1>
-                <small>Home / Dashboard</small>
-            </div>
-            
+           
             <div class="page-content">
-            
                 <div class="analytics">
 
+                    <!-- Card 1 -->
                     <div class="card">
                         <div class="card-head">
                             <h2>107,200</h2>
-                            <span class="las la-user-friends"></span>
+                            <span class="las la-box"></span>
                         </div>
                         <div class="card-progress">
                             <small><a href="http://localhost:8085/abc_restaurant_final/product?action=list" style="text-decoration:none;color:inherit;">Manage Products</a></small>
@@ -44,6 +38,7 @@
                         </div>
                     </div>
 
+                    <!-- Card 2 -->
                     <div class="card">
                         <div class="card-head">
                             <h2>340,230</h2>
@@ -57,10 +52,11 @@
                         </div>
                     </div>
 
+                    <!-- Card 3 -->
                     <div class="card">
                         <div class="card-head">
                             <h2>$653,200</h2>
-                            <span class="las la-shopping-cart"></span>
+                            <span class="las la-calendar-check"></span>
                         </div>
                         <div class="card-progress">
                             <small>Manage Reservations</small>
@@ -70,86 +66,56 @@
                         </div>
                     </div>
 
+                    <!-- Card 4 -->
                     <div class="card">
                         <div class="card-head">
                             <h2>47,500</h2>
                             <span class="las la-envelope"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Reports</small>
+                            <small>Query Management</small>
                             <div class="card-indicator">
                                 <div class="indicator four" style="width: 90%"></div>
                             </div>
                         </div>
                     </div>
 
+                    <!-- Card 5 -->
+                    <div class="card">
+                        <div class="card-head">
+                            <h2>47,500</h2>
+                            <span class="las la-chart-bar"></span>
+                        </div>
+                        <div class="card-progress">
+                            <small>Reports</small>
+                            <div class="card-indicator">
+                                <div class="indicator five" style="width: 90%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 6 -->
+                    <div class="card">
+                        <div class="card-head">
+                            <h2>50,000</h2>
+                            <span class="las la-wallet"></span>
+                        </div>
+                        <div class="card-progress">
+                            <small>Payments</small>
+                            <div class="card-indicator">
+                                <div class="indicator six" style="width: 70%"></div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
 
+                
 
-                <div class="records table-responsive">
-
-                    <div class="record-header">
-                        <div class="add">
-                            <span>Entries</span>
-                            <select name="" id="">
-                                <option value="">ID</option>
-                            </select>
-                            <button>Add record</button>
-                        </div>
-
-                        <div class="browse">
-                           <input type="search" placeholder="Search" class="record-search">
-                            <select name="" id="">
-                                <option value="">Status</option>
-                            </select>
-                        </div>
-                    </div>
-
-                    <div>
-                        <table width="100%">
-                            <thead>
-                                <tr>
-                                    <th>#</th>
-                                    <th><span class="las la-sort"></span> CLIENT</th>
-                                    <th><span class="las la-sort"></span> TOTAL</th>
-                                    <th><span class="las la-sort"></span> ISSUED DATE</th>
-                                    <th><span class="las la-sort"></span> BALANCE</th>
-                                    <th><span class="las la-sort"></span> ACTIONS</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <!-- Sample Rows -->
-                                <tr>
-                                    <td>#5033</td>
-                                    <td>
-                                        <div class="client">
-                                           <div class="client-img bg-img" style="background-image: url(img/3.jpeg)"></div>
-                                            <div class="client-info">
-                                                <h4>Andrew Bruno</h4>
-                                                <small>bruno@crossover.org</small>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>$3171</td>
-                                    <td>19 April, 2022</td>
-                                    <td>- $205</td>
-                                    <td>
-                                        <div class="actions">
-                                            <span class="lab la-telegram-plane"></span>
-                                            <span class="las la-eye"></span>
-                                            <span class="las la-ellipsis-v"></span>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Repeat more rows as needed -->
-                            </tbody>
-                        </table>
-                    </div>
-
+                    
                 </div>
             
             </div>
-            
         </main>
         
     </div>

@@ -157,7 +157,6 @@ header {
     height: 60px;
     display: flex;
     align-items: center;
-    justify-content: flex-end;
     position: fixed;
     width: calc(100% - 165px);
     background: var(--color-dark);
@@ -169,10 +168,27 @@ header {
     box-shadow: 0px 5px 5px -5px rgb(0 0 0 /10%);
 }
 
-header label span {
-    color: #D4AF37; /* Gold */
-    font-size: 1.7rem;
-    cursor: pointer;
+/* Header Content Layout */
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
+}
+
+.header-menu {
+    display: flex;
+    align-items: center;
+}
+
+.header-menu label {
+    margin-right: auto; /* Align search bar to center */
+    margin-left: auto;
+}
+
+.header-icons {
+    display: flex;
+    align-items: center;
 }
 
 .header-icons span {
@@ -182,8 +198,32 @@ header label span {
     cursor: pointer;
 }
 
-header .notify, .profile img {
+/* Notify icons and Logout */
+.notify-icon {
+    position: relative;
+}
+
+.notify-icon .notify {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 0.8rem;
+    border-radius: 50%;
+    padding: 2px 6px;
+}
+
+.user {
+    display: flex;
+    align-items: center;
+    margin-left: 1.5rem;
     cursor: pointer;
+}
+
+.user .las {
+    margin-right: 0.5rem;
+    color: #D4AF37; /* Gold */
 }
 
 .page-content {
