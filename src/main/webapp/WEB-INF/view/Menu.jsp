@@ -35,25 +35,18 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1 class="text-center">Our Menu</h1>
-        <div class="row">
-            <c:forEach var="product" items="${products}">
-                <div class="col-md-4">
-                    <div class="menu-item">
-                        <h2>product.name</h2>
-                        <p>product.description</p>
-                        <p>product.price</p>
-                        <c:if test="${not empty product.imageUrl}">
-                            <img src="${pageContext.request.contextPath}/${product.imageUrl}" alt="${product.name}">
-                        </c:if>
-                        <c:if test="${empty product.imageUrl}">
-                            <p>No Image</p>
-                        </c:if>
-                    </div>
-                </div>
-            </c:forEach>
-        </div>
+    <h1>Our Menu</h1>
+    <div class="menu-container">
+        <c:forEach var="product" items="${products}">
+            <div class="menu-item">
+                <h2>${product.name}</h2>
+                <p>${product.description}</p>
+                <p>Price: $${product.price}</p>
+                <c:if test="${product.imageUrl != null}">
+                    <img src="${pageContext.request.contextPath}/${product.imageUrl}" alt="${product.name}">
+                </c:if>
+            </div>
+        </c:forEach>
     </div>
 </body>
 </html>
