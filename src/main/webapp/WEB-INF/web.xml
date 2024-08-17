@@ -13,11 +13,13 @@
   	<servlet-class>com.abc.controller.ProductController</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>MenuServlet</servlet-name>
-  	<display-name>MenuServlet</display-name>
+  	<servlet-name>MenuController</servlet-name>
+  	<display-name>MenuController</display-name>
   	<description></description>
-  	<servlet-class>com.abc.controller.MenuServlet</servlet-class>
+  	<servlet-class>com.abc.controller.MenuController</servlet-class>
   </servlet>
+  
+  
   
 
   <servlet-mapping>
@@ -25,8 +27,9 @@
   	<url-pattern>/ProductController</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>MenuServlet</servlet-name>
-  	<url-pattern>/MenuServlet</url-pattern>
+  	<servlet-name>MenuController</servlet-name>
+  	<url-pattern>/MenuController</url-pattern>
   </servlet-mapping>
   
+ 
 </web-app>
