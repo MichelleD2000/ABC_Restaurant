@@ -58,6 +58,18 @@
                 <label for="description" class="form-label">Description</label>
                 <textarea class="form-control" id="description" name="description">${product.description}</textarea>
             </div>
+            <!-- New Category Dropdown -->
+            <div class="mb-3">
+                <label for="category" class="form-label">Category</label>
+                <select class="form-control" id="category" name="category" required>
+                    <option value="">Select a category</option>
+                    <option value="electronics" ${product.category == 'Appetizers' ? 'selected' : ''}>Appetizers</option>
+                    <option value="clothing" ${product.category == 'Main Course' ? 'selected' : ''}>Main Course</option>
+                    <option value="home_appliances" ${product.category == 'Side dishes' ? 'selected' : ''}>Side dishes</option>
+                    <option value="books" ${product.category == 'Desserts' ? 'selected' : ''}>Desserts</option>
+                    <option value="sports" ${product.category == 'Drinks' ? 'selected' : ''}>Drinks</option>
+                </select>
+            </div>
             <div class="mb-3">
                 <label for="image" class="form-label">Product Image</label>
                 <input type="file" class="form-control" id="image" name="image">

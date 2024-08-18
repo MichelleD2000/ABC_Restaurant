@@ -23,9 +23,10 @@ public class ProductDAO {
                 String name = resultSet.getString("name");
                 double price = resultSet.getDouble("price");
                 String description = resultSet.getString("description");
+                String category = resultSet.getString("category");
                 String imageUrl = resultSet.getString("imageUrl"); // Correct column name
 
-                Product product = new Product(productId, name, description, price, imageUrl);
+                Product product = new Product(productId, name, description,category, price, imageUrl);
                 productList.add(product);
             }
         }
@@ -44,9 +45,10 @@ public class ProductDAO {
                     String name = resultSet.getString("name");
                     double price = resultSet.getDouble("price");
                     String description = resultSet.getString("description");
+                    String category = resultSet.getString("category");
                     String imageUrl = resultSet.getString("imageUrl"); // Correct column name
 
-                    product = new Product(id, name, description, price, imageUrl);
+                    product = new Product(id, name, description,category, price, imageUrl);
                 }
             }
         }
@@ -55,27 +57,29 @@ public class ProductDAO {
 
     // Add a new product
     public void addProduct(Product product) throws SQLException {
-        String query = "INSERT INTO products (name, price, description, imageUrl) VALUES (?, ?, ?, ?)"; // Correct column name
+        String query = "INSERT INTO products (name, price, description,category, imageUrl) VALUES (?, ?, ?, ?,?)"; // Correct column name
         try (Connection connection = DBConnection.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, product.getName());
             statement.setDouble(2, product.getPrice());
             statement.setString(3, product.getDescription());
-            statement.setString(4, product.getImageUrl()); // Correct column name
+            statement.setString(4, product.getCategory());
+            statement.setString(5, product.getImageUrl()); // Correct column name
             statement.executeUpdate();
         }
     }
 
     // Update an existing product
     public void updateProduct(Product product) throws SQLException {
-        String query = "UPDATE products SET name = ?, price = ?, description = ?, imageUrl = ? WHERE productId = ?"; // Correct column name
+        String query = "UPDATE products SET name = ?, price = ?, description = ?, category = ?, imageUrl = ? WHERE productId = ?"; // Correct column name
         try (Connection connection = DBConnection.getInstance().getConnection();
              PreparedStatement statement = connection.prepareStatement(query)) {
             statement.setString(1, product.getName());
             statement.setDouble(2, product.getPrice());
             statement.setString(3, product.getDescription());
-            statement.setString(4, product.getImageUrl()); // Correct column name
-            statement.setInt(5, product.getProductId());
+            statement.setString(4,product.getCategory());
+            statement.setString(5, product.getImageUrl()); // Correct column name
+            statement.setInt(6, product.getProductId());
             statement.executeUpdate();
         }
     }

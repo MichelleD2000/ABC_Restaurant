@@ -71,6 +71,7 @@ public class ProductController extends HttpServlet {
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
         String description = request.getParameter("description");
+        String category = request.getParameter("category");  // Retrieve category from request parameters
 
         Part imagePart = request.getPart("image");
         String imageUrl = saveImage(imagePart);
@@ -79,12 +80,12 @@ public class ProductController extends HttpServlet {
         product.setName(name);
         product.setPrice(price);
         product.setDescription(description);
+        product.setCategory(category);  // Now, category is correctly set
         product.setImageUrl(imageUrl);
 
         productService.addProduct(product);
         response.sendRedirect("product?action=list");
     }
-
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         int productId = Integer.parseInt(request.getParameter("id"));
         Product existingProduct = productService.getProductById(productId);
@@ -96,15 +97,17 @@ public class ProductController extends HttpServlet {
         int productId = Integer.parseInt(request.getParameter("id"));
         String name = request.getParameter("name");
         double price = Double.parseDouble(request.getParameter("price"));
+        String category = request.getParameter("category");  // Retrieve category from request parameters
         String description = request.getParameter("description");
 
         Part imagePart = request.getPart("image");
         String imageUrl = saveImage(imagePart);
 
-        Product product = new Product(productId, name, description, price, imageUrl);
+        Product product = new Product(productId, name, description, category, price, imageUrl);
         productService.updateProduct(product);
         response.sendRedirect("product?action=list");
     }
+
 
     private void deleteProduct(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         int productId = Integer.parseInt(request.getParameter("id"));

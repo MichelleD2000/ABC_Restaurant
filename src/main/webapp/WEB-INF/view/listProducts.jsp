@@ -68,6 +68,7 @@
                     <th>Product ID</th>
                     <th>Name</th>
                     <th>Description</th>
+                    <th>Category</th> <!-- New Category Column -->
                     <th>Price</th>
                     <th>Image</th>
                     <th>Actions</th>
@@ -79,6 +80,7 @@
                         <td>${product.productId}</td>
                         <td>${product.name}</td>
                         <td>${product.description}</td>
+                        <td>${product.category}</td> <!-- Display Category -->
                         <td>${product.price}</td>
                         <td>
                             <c:if test="${not empty product.imageUrl}">

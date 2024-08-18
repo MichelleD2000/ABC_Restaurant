@@ -158,7 +158,7 @@
         <!-- Navigation Links -->
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
-            <li><a href="Menu.jsp">Menu</a></li> <!-- Updated link to Menu.jsp -->
+            <li><a href="menu">Menu</a></li> <!-- Updated link to Menu.jsp -->
             <li><a href="#">Our Services</a></li>
             <li><a href="#">Reservations</a></li>
             <li><a href="#">Quarries</a></li>
@@ -169,8 +169,8 @@
         <div class="auth-links">
             <a href="#" class="auth-icon"><i class="fas fa-user"></i></a> <!-- Font Awesome user icon -->
             <div class="dropdown">
-                <a href="login.html">Login</a>
-                <a href="register.html">Register</a>
+                <a href="login.jsp">Login</a>
+                <a href="register.jsp">Register</a>
             </div>
         </div>
     </nav>

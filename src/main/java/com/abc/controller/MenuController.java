@@ -2,34 +2,36 @@ package com.abc.controller;
 
 import java.io.IOException;
 import java.sql.SQLException;
-import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.abc.model.Product;
 import com.abc.service.ProductService;
 
 @WebServlet("/menu")
-public class MenuController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
+public class MenuController extends HttpServlet { 
+	private static final long serialVersionUID = 1L;
     private ProductService productService;
 
     @Override
     public void init() throws ServletException {
-        productService = ProductService.getInstance();
+        productService = ProductService.getInstance(); // Using Singleton pattern
     }
 
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws ServletException, IOException {
+        
         try {
-            List<Product> productList = productService.getAllProducts();
-            request.setAttribute("products", productList);
-            request.getRequestDispatcher("/webapp/Menu.jsp").forward(request, response);
+            request.setAttribute("products", productService.getAllProducts());
         } catch (SQLException e) {
-            throw new ServletException(e);
+            e.printStackTrace();
+            // Handle the exception, e.g., forward to an error page or display an error message
         }
+       
+        request.getRequestDispatcher("menu.jsp").forward(request, response);
     }
 }
