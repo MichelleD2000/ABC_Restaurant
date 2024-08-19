@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -45,7 +47,7 @@
                             <span class="las la-eye"></span>
                         </div>
                         <div class="card-progress">
-                            <small><a href="http://localhost:8085/abc_restaurant_final/User?action=list" style="text-decoration:none;color:inherit;">Manage Users</a></small>
+                            <small>Manage Users</small>
                             <div class="card-indicator">
                                 <div class="indicator two" style="width: 80%"></div>
                             </div>
