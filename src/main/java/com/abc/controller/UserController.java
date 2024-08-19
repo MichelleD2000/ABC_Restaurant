@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.List;
 
 @WebServlet("/user")
 public class UserController extends HttpServlet {
@@ -29,6 +30,19 @@ public class UserController extends HttpServlet {
             registerUser(request, response);
         } else if ("login".equalsIgnoreCase(action)) {
             loginUser(request, response);
+        } 
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        if ("list".equalsIgnoreCase(action)) {
+            listUsers(request, response);
+        } else if ("add".equalsIgnoreCase(action)) {
+            // Redirect to addUser.jsp
+            RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/view/addUser.jsp");
+            dispatcher.forward(request, response);
         }
     }
 
@@ -56,11 +70,23 @@ public class UserController extends HttpServlet {
 
         if (user != null) {
             request.getSession().setAttribute("loggedUser", user);
-            response.sendRedirect("dashboard.jsp");  // Redirect to a dashboard or main page after login
+            response.sendRedirect("dashboard.jsp");
         } else {
             request.setAttribute("errorMessage", "Invalid email or password!");
             RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
             dispatcher.forward(request, response);
         }
+    }
+
+    // Method to list all users
+    private void listUsers(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+            List<User> userList = userService.getAllUsers();
+            request.setAttribute("userList", userList);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        RequestDispatcher dispatcher = request.getRequestDispatcher("WEB-INF/view/listUser.jsp");
+        dispatcher.forward(request, response);
     }
 }

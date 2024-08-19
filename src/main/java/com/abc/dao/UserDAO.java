@@ -1,10 +1,13 @@
 package com.abc.dao;
 
 import com.abc.model.User;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class UserDAO {
 
@@ -49,5 +52,30 @@ public class UserDAO {
         }
 
         return null;
+    }
+
+    // Method to get all users
+    public List<User> getAllUsers() {
+        List<User> users = new ArrayList<>();
+        String sql = "SELECT * FROM users";
+
+        try (Connection conn = DBConnectionFactory.getConnection();
+             PreparedStatement stmt = conn.prepareStatement(sql)) {
+
+            ResultSet resultSet = stmt.executeQuery();
+
+            while (resultSet.next()) {
+                int id = resultSet.getInt("user_id");
+                String username = resultSet.getString("username");
+                String email = resultSet.getString("email");
+                String password = resultSet.getString("password");
+                users.add(new User(id, username, email, password));
+            }
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return users;
     }
 }
