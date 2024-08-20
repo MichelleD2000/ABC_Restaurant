@@ -2,20 +2,17 @@ package com.abc.model;
 
 public class Admin {
     private int adminId;
-    private String username;
+    private String name;
+    private String email;
     private String password;
 
     // Constructors
     public Admin() { }
 
-    public Admin(int adminId, String username, String password) {
+    public Admin(int adminId, String name, String email, String password) {
         this.adminId = adminId;
-        this.username = username;
-        this.password = password;
-    }
-
-    public Admin(String username, String password) {
-        this.username = username;
+        this.name = name;
+        this.email = email;
         this.password = password;
     }
 
@@ -28,12 +25,20 @@ public class Admin {
         this.adminId = adminId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getName() {
+        return name;
     }
 
-    public void setUsername(String username) {
-        this.username = username;
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public String getPassword() {

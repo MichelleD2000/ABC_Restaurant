@@ -47,7 +47,7 @@
                             <span class="las la-eye"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Manage Users</small>
+                            <small><a href="http://localhost:8085/abc_restaurant_final/customer?action=list" style="text-decoration:none;color:inherit;">Manage Customers</a></small>
                             <div class="card-indicator">
                                 <div class="indicator two" style="width: 80%"></div>
                             </div>

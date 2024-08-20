@@ -20,6 +20,7 @@ public class ProductController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private ProductService productService;
 
+   
     @Override
     public void init() throws ServletException {
         productService = ProductService.getInstance();

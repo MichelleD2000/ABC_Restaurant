@@ -12,7 +12,7 @@ public class AdminService {
     }
 
     // Login an admin
-    public Admin loginAdmin(String username, String password) {
-        return adminDAO.loginAdmin(username, password);
+    public Admin loginAdmin(String email, String password) {
+        return adminDAO.loginAdmin(email, password);
     }
 }

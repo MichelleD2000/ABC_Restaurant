@@ -27,36 +27,42 @@ public class AdminController extends HttpServlet {
         String action = request.getParameter("action");
 
         if ("login".equalsIgnoreCase(action)) {
-            adminLogin(request, response);
-        } else if ("logout".equalsIgnoreCase(action)) {
-            adminLogout(request, response);
+            loginAdmin(request, response);
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+
+        if ("logout".equalsIgnoreCase(action)) {
+            logoutAdmin(request, response);
         }
     }
 
     // Method to handle admin login
-    private void adminLogin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String username = request.getParameter("username");
+    private void loginAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String email = request.getParameter("email");
         String password = request.getParameter("password");
 
-        Admin admin = adminService.loginAdmin(username, password);
+        Admin admin = adminService.loginAdmin(email, password);
 
         if (admin != null) {
-            HttpSession session = request.getSession();
-            session.setAttribute("loggedAdmin", admin);
-            response.sendRedirect("dashboard.jsp");
+            request.getSession().setAttribute("loggedAdmin", admin);
+            response.sendRedirect("Admin_Area/dashboard.jsp");  // Redirect to admin dashboard
         } else {
-            request.setAttribute("errorMessage", "Invalid username or password!");
+            request.setAttribute("errorMessage", "Invalid email or password!");
             RequestDispatcher dispatcher = request.getRequestDispatcher("adminLogin.jsp");
             dispatcher.forward(request, response);
         }
     }
 
     // Method to handle admin logout
-    private void adminLogout(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        HttpSession session = request.getSession(false);
+    private void logoutAdmin(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        HttpSession session = request.getSession(false); // Fetch session if exists
         if (session != null) {
-            session.invalidate();  // Invalidate the session
+            session.invalidate(); // Invalidate the session
         }
-        response.sendRedirect("adminLogin.jsp");
+        response.sendRedirect("adminLogin.jsp");  // Redirect to admin login page
     }
 }

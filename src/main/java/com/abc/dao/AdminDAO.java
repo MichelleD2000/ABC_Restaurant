@@ -10,20 +10,21 @@ import java.sql.SQLException;
 public class AdminDAO {
 
     // Method to login an admin
-    public Admin loginAdmin(String username, String password) {
-        String sql = "SELECT * FROM admins WHERE username = ? AND password = ?";
+    public Admin loginAdmin(String email, String password) {
+        String sql = "SELECT * FROM admin WHERE email = ? AND password = ?";
 
-        try (Connection conn = DBConnection.getInstance().getConnection();
+        try (Connection conn = DBConnectionFactory.getConnection();
              PreparedStatement stmt = conn.prepareStatement(sql)) {
 
-            stmt.setString(1, username);
+            stmt.setString(1, email);
             stmt.setString(2, password);
 
             ResultSet resultSet = stmt.executeQuery();
 
             if (resultSet.next()) {
-                int adminId = resultSet.getInt("admin_id");
-                return new Admin(adminId, username, password);
+                int id = resultSet.getInt("admin_id");
+                String name = resultSet.getString("name");
+                return new Admin(id, name, email, password);
             }
 
         } catch (SQLException e) {

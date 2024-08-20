@@ -118,12 +118,12 @@
             </div>
             
             <div class="user">
-    <div class="bg-img" style="background-image: url('img/1.jpeg')"></div>
-    <a href="admin?action=logout" style="text-decoration: none; color: white;">
-        <span class="las la-power-off"></span>
-        <span>Logout</span>
-    </a>
-</div>
+                <div class="bg-img" style="background-image: url('img/1.jpeg')"></div>
+                <a href="adminLogin.jsp" style="text-decoration: none; color: white;">
+                    <span class="las la-power-off"></span>
+                    <span>Logout</span>
+                </a>
+            </div>
         </div>
     </div>
 </header>
