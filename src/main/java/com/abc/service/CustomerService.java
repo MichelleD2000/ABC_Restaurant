@@ -2,6 +2,7 @@ package com.abc.service;
 
 import com.abc.dao.CustomerDAO;
 import com.abc.model.Customer;
+
 import java.sql.SQLException;
 import java.util.List;
 
@@ -13,13 +14,9 @@ public class CustomerService {
         customerDAO = new CustomerDAO();
     }
 
-    public static CustomerService getInstance() {
+    public static synchronized CustomerService getInstance() {
         if (instance == null) {
-            synchronized (CustomerService.class) {
-                if (instance == null) {
-                    instance = new CustomerService();
-                }
-            }
+            instance = new CustomerService();
         }
         return instance;
     }

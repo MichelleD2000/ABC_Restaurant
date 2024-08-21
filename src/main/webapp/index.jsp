@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ABC Restaurant - Home</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/css/line-awesome.min.css">
 </head>
 <body>
@@ -80,6 +80,7 @@
             <a href="reservation.jsp" class="cta-btn">Make a Reservation</a>
         </div>
     </section>
+
 
     <!-- Gallery Section -->
     <section class="gallery">

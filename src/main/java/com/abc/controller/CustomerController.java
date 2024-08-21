@@ -77,6 +77,7 @@ public class CustomerController extends HttpServlet {
         String address = request.getParameter("address");
         String phoneNumber = request.getParameter("phoneNumber");
         String password = request.getParameter("password");
+        String restaurantOutlet = request.getParameter("restaurantOutlet");
 
         Customer customer = new Customer();
         customer.setName(name);
@@ -84,9 +85,10 @@ public class CustomerController extends HttpServlet {
         customer.setAddress(address);
         customer.setPhoneNumber(phoneNumber);
         customer.setPassword(password);
+        customer.setRestaurantOutlet(restaurantOutlet);
 
         customerService.addCustomer(customer);
-        response.sendRedirect("WEB-INF/view/listCustomer.jsp");
+        response.sendRedirect("customer?action=list");
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -103,13 +105,14 @@ public class CustomerController extends HttpServlet {
         String address = request.getParameter("address");
         String phoneNumber = request.getParameter("phoneNumber");
         String password = request.getParameter("password");
+        String restaurantOutlet = request.getParameter("restaurantOutlet");
 
-        Customer customer = new Customer(customerId, name, email, address, phoneNumber, password);
+        Customer customer = new Customer(customerId, name, email, address, phoneNumber, password, restaurantOutlet);
         customerService.updateCustomer(customer);
         response.sendRedirect("customer?action=list");
     }
 
-    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+    private void deleteCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException {
         int customerId = Integer.parseInt(request.getParameter("id"));
         customerService.deleteCustomer(customerId);
         response.sendRedirect("customer?action=list");
@@ -121,6 +124,7 @@ public class CustomerController extends HttpServlet {
         String address = request.getParameter("address");
         String phoneNumber = request.getParameter("phoneNumber");
         String password = request.getParameter("password");
+        String restaurantOutlet = request.getParameter("restaurantOutlet");
 
         Customer customer = new Customer();
         customer.setName(name);
@@ -128,13 +132,15 @@ public class CustomerController extends HttpServlet {
         customer.setAddress(address);
         customer.setPhoneNumber(phoneNumber);
         customer.setPassword(password);
+        customer.setRestaurantOutlet(restaurantOutlet);
 
         customerService.addCustomer(customer);
         request.setAttribute("message", "Registration successful! Please log in.");
         request.getRequestDispatcher("login.jsp").forward(request, response);
     }
 
-    private void loginCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
+
+    private void loginCustomer(HttpServletRequest request, HttpServletResponse response) throws SQLException, IOException, ServletException {
         String email = request.getParameter("email");
         String password = request.getParameter("password");
 
@@ -142,14 +148,14 @@ public class CustomerController extends HttpServlet {
         if (customer != null) {
             HttpSession session = request.getSession();
             session.setAttribute("customer", customer);
-            response.sendRedirect("index.jsp"); // Redirect to the home page or dashboard after login
+            response.sendRedirect("index.jsp");  // Redirect to customer list or another page
         } else {
-            request.setAttribute("errorMessage", "Invalid email or password.");
+            request.setAttribute("errorMessage", "Invalid email or password");
             request.getRequestDispatcher("login.jsp").forward(request, response);
         }
     }
 
-    private void logoutCustomer(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void logoutCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         session.invalidate();
         response.sendRedirect("login.jsp");

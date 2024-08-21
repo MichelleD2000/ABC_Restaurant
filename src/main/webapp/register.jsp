@@ -1,6 +1,4 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -34,13 +32,16 @@
                 <label for="password">Password:</label>
                 <input type="password" id="password" name="password" required>
             </div>
+            <div class="form-group">
+                <label for="restaurantOutlet">Restaurant Outlet:</label>
+                <input type="text" id="restaurantOutlet" name="restaurantOutlet" required>
+            </div>
             <button type="submit">Register</button>
             <p>Already have an account? <a href="login.jsp">Login here</a></p>
         </form>
         <% if(request.getAttribute("message") != null) { %>
-            <p style="color: green;"><%= request.getAttribute("message") %></p>
+            <p style="color: red;"><%= request.getAttribute("message") %></p>
         <% } %>
     </div>
-    <script src="js/scripts.js"></script>
 </body>
 </html>

@@ -1,0 +1,70 @@
+@charset "UTF-8";
+/* General reset */
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Reservation Header */
+/* General reset */
+body, h1, ul {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+/* Reservation Header */
+.reservation-header {
+    background-image: url('../images/reservation2.jpg'); /* Replace with the path to your background image */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    height: 300px;
+    color: white;
+}
+
+.overlay {
+    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 48px;
+    font-weight: bold;
+    color: #D0A24E;
+    margin-top: 70px;
+    
+}
+
+.breadcrumb {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}
+
+.breadcrumb li {
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+.breadcrumb a {
+    color: white;
+    text-decoration: none;
+}
+
+.breadcrumb .las {
+    margin-right: 5px;
+}

@@ -6,23 +6,22 @@ public class Customer {
     private String email;
     private String address;
     private String phoneNumber;
-    private String password; // New field
+    private String password;
+    private String restaurantOutlet;
 
-    // Default constructor
-    public Customer() {
-    }
+    public Customer() {}
 
-    // Constructor with all fields
-    public Customer(int customerId, String name, String email, String address, String phoneNumber, String password) {
+    public Customer(int customerId, String name, String email, String address, String phoneNumber, String password, String restaurantOutlet) {
         this.customerId = customerId;
         this.name = name;
         this.email = email;
         this.address = address;
         this.phoneNumber = phoneNumber;
         this.password = password;
+        this.restaurantOutlet = restaurantOutlet;
     }
 
-    // Getters and setters for all fields
+    // Getters and setters
     public int getCustomerId() {
         return customerId;
     }
@@ -63,11 +62,19 @@ public class Customer {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getPassword() { // New getter
+    public String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) { // New setter
+    public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getRestaurantOutlet() {
+        return restaurantOutlet;
+    }
+
+    public void setRestaurantOutlet(String restaurantOutlet) {
+        this.restaurantOutlet = restaurantOutlet;
     }
 }

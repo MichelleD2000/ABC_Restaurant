@@ -18,3 +18,17 @@ $(document).ready(function() {
         }
     });
 });
+
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const btn = document.querySelector('.cta-btn');
+
+            btn.addEventListener('mouseover', function() {
+                btn.style.backgroundColor = '#d35400';
+            });
+
+            btn.addEventListener('mouseout', function() {
+                btn.style.backgroundColor = '#e67e22';
+            });
+        });
+  
