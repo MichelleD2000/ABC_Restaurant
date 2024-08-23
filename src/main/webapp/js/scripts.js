@@ -31,4 +31,24 @@ $(document).ready(function() {
                 btn.style.backgroundColor = '#e67e22';
             });
         });
+		
+		// Show the scroll-to-top button when scrolling down
+		window.onscroll = function() {
+		    scrollFunction();
+		};
+
+		function scrollFunction() {
+		    const scrollTopBtn = document.getElementById("scrollTopBtn");
+		    if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+		        scrollTopBtn.style.display = "block";
+		    } else {
+		        scrollTopBtn.style.display = "none";
+		    }
+		}
+
+		
+
+	
+		
+		
   

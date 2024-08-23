@@ -83,12 +83,12 @@ header .auth-links a {
 .hero h2 {
     font-size: 48px;
     margin-bottom: 20px;
-    color: #ffd700; /* Golden color */
+    color: #e67e22; /* Golden color */
 }
 
 .hero p {
     font-size: 24px;
-    color: #ffd700; /* Golden color */
+    color: #e67e22; /* Golden color */
 }
 
 .hero .cta-btn {
@@ -116,42 +116,46 @@ p {
 }
 
 /* About Us Section with Background Image */
-.about-us-section {
-    position: relative;
-    background: url('images/images.jpeg') no-repeat center center/cover;
-    padding: 100px 0;
-    color: white;
-    text-align: center;
+/* About Section */
+.about-content {
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    background-color:white;
+    width: 100%
 }
 
-.about-us-section .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+.about-heading span {
+    display: block;
+    font-family: 'Times New Roman', serif;
+    font-size: 24px;
+    color: #ccc;
+    font-weight: normal;
 }
 
-.about-us-content {
-    position: relative;
-    z-index: 1;
+.about-btn {
+    font-size: 16px;
+    font-weight: bold;
+    transition: background-color 0.3s ease-in-out;
 }
 
-.about-us-content h2 {
-    font-size: 36px;
-    margin-bottom: 20px;
-    color: #ffd700; /* Golden color */
+.about-btn:hover {
+    background-color: #d4af37; /* Gold Color */
+    color: #fff;
 }
 
-.restaurant-message {
-    font-size: 1.2em;
-    line-height: 1.6;
-    color: white; /* Set color to white to stand out against the background */
-    max-width: 800px;
-    margin: 0 auto;
-    text-align: center;
+/* AOS Animation */
+[data-aos] {
+    opacity: 0;
+    transition-property: opacity, transform;
+    transition-duration: 1s;
 }
+
+[data-aos].aos-animate {
+    opacity: 1;
+    transform: translate(0);
+}
+
 
 /* Grid Layouts */
 .services-grid, .facilities-grid, .gallery-grid, .contact-info-grid {
@@ -328,3 +332,65 @@ footer {
     text-align: center;
     padding: 20px;
 }
+
+
+/* General Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+}
+
+/* Header Section */
+.header-section {
+    background-image: url('images/service.jpg'); /* Replace with your background image path */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.header-section .overlay {
+    background-color: rgba(0, 0, 0, 0.5);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.header-section h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color:  #d4af37;
+    margin-top:150px;
+}
+
+.header-section p {
+    font-size: 1.5rem;
+    color: #d4af37; /* Golden Color */
+    font-family: 'Georgia', serif;
+}
+
+/* Additional Styling */
+.container {
+    position: relative;
+    z-index: 2;
+}
+
+/* Media Queries for Responsiveness */
+@media (max-width: 768px) {
+    .header-section h1 {
+        font-size: 2.5rem;
+    }
+
+    .header-section p {
+        font-size: 1.25rem;
+    }
+}
+

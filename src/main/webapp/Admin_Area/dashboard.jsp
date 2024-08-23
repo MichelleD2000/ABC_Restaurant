@@ -61,7 +61,7 @@
                             <span class="las la-calendar-check"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Manage Reservations</small>
+                            <small><a href="http://localhost:8085/abc_restaurant_final/reservation?action=list" style="text-decoration:none;color:inherit;">Manage Reservations</a></small>
                             <div class="card-indicator">
                                 <div class="indicator three" style="width: 65%"></div>
                             </div>
@@ -75,7 +75,7 @@
                             <span class="las la-envelope"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Query Management</small>
+                            <small>Manage Services</small>
                             <div class="card-indicator">
                                 <div class="indicator four" style="width: 90%"></div>
                             </div>
@@ -89,7 +89,7 @@
                             <span class="las la-chart-bar"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Reports</small>
+                            <small>Manage Offers and gallery</small>
                             <div class="card-indicator">
                                 <div class="indicator five" style="width: 90%"></div>
                             </div>
@@ -103,7 +103,7 @@
                             <span class="las la-wallet"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Payments</small>
+                            <small>Reports</small>
                             <div class="card-indicator">
                                 <div class="indicator six" style="width: 70%"></div>
                             </div>

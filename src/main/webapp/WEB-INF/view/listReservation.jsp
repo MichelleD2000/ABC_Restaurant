@@ -1,10 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Customer List</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservation List</title>
       <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
@@ -60,34 +61,34 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <h2>Customer List</h2>
-        <a href="customer?action=add">Add New Customer</a>
-        <table border="1">
+    <h2>Reservations</h2>
+
+    <table border="1">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Guests</th>
+            <th>Phone</th>
+            <th>Email</th>
+            <th>Actions</th>
+        </tr>
+        <c:forEach var="reservation" items="${reservations}">
             <tr>
-                <th>ID</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Address</th>
-                <th>Phone Number</th>
-                <th>Restaurant Outlet</th>
-                <th>Actions</th>
+                <td>${reservation.id}</td>
+                <td>${reservation.name}</td>
+                <td><fmt:formatDate value="${reservation.date}" pattern="yyyy-MM-dd" /></td>
+                <td>${reservation.time}</td>
+                <td>${reservation.guests}</td>
+                <td>${reservation.phone}</td>
+                <td>${reservation.email}</td>
+                <td>
+                    
+                    <a href="reservation?action=delete&id=${reservation.id}" onclick="return confirm('Are you sure?')">Delete</a>
+                </td>
             </tr>
-            <c:forEach var="customer" items="${customers}">
-                <tr>
-                    <td>${customer.customerId}</td>
-                    <td>${customer.name}</td>
-                    <td>${customer.email}</td>
-                    <td>${customer.address}</td>
-                    <td>${customer.phoneNumber}</td>
-                    <td>${customer.restaurantOutlet}</td>
-                    <td>
-                        <a href="customer?action=edit&id=${customer.customerId}">Edit</a>
-                        <a href="customer?action=delete&id=${customer.customerId}" onclick="return confirm('Are you sure?')">Delete</a>
-                    </td>
-                </tr>
-            </c:forEach>
-        </table>
-    </div>
+        </c:forEach>
+    </table>
 </body>
 </html>

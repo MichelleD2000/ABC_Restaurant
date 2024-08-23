@@ -6,6 +6,105 @@
     <title>ABC Restaurant - Home</title>
     <link rel="stylesheet" href="./styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/line-awesome/1.3.0/css/line-awesome.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <style>
+          /* Other Styling */
+     /* Other Styling */
+        .history {
+           background: url('images/charming-outdoor-cafe-scene-with-warm-lights-modern-architecture-perfect-evening-gatherings-relaxing-moments_1302739-1265.jpg') no-repeat center center/cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    position: relative;
+}
+        }
+
+        .history h2 {
+            font-family: ''Harry Potter', serif;
+            color:   #d4af37;
+            font-size: 2rem;
+        }
+
+        .history h1 {
+            color:  #d4af37;
+            font-family: 'Harry Potter', serif;
+            font-weight: bold;
+            font-size: 2.5rem;
+        }
+
+        .history p {
+            font-size: 1rem;
+            color: #ccc;
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+
+        .btn-gold {
+            background-color: #d4a24c;
+            color: #fff;
+            border: 2px solid #d4a24c;
+            padding: 10px 20px;
+            font-size: 1rem;
+            text-transform: uppercase;
+        }
+
+        .btn-gold:hover {
+            background-color: #b38632;
+            border-color: #b38632;
+            color: #fff;
+        }
+
+        .img-hover:hover {
+            transform: scale(1.05);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .branches-row {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px; /* Adjust spacing between images */
+        }
+
+        .gallery-item {
+            flex: 1 1 calc(25% - 20px); /* Adjusts the item to take 25% width minus the gap */
+            max-width: calc(25% - 20px); /* Ensures that each item is limited to 25% of the container's width */
+            padding: 15px;
+            border: 1px solid #e1e1e1;
+            border-radius: 5px;
+            background-color: #fff;
+            box-sizing: border-box;
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
+
+        .gallery-item img:hover {
+            transform: scale(1.05);
+        }
+
+        .gallery-item h4 {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .gallery-item p {
+            font-size: 1em;
+            color: #666;
+        }
+
+        /* Add more styling as needed */
+    </style>
+
+
 </head>
 <body>
     <!-- Header -->
@@ -21,11 +120,24 @@
     </section>
 
     <!-- About Section -->
-    <section class="about">
-        <div class="container">
-            <h2>About Us</h2>
-            <p>ABC Restaurant is a leading chain in Sri Lanka offering premium dining experiences across the country. Known for our top-notch hospitality and delicious cuisines, we strive to provide an unforgettable experience for all our guests.</p>
+   <section class="history py-5">
+        <div class="container row align-items-center">
+            <div class="col-md-6 text-center text-md-left">
+                <h2 class="text-gold" style="font-family: 'Dancing Script', cursive; font-size: 2rem;">History of</h2>
+                <h1 class="display-4 text-white font-weight-bold">Our Restaurant</h1>
+                <p class="text-muted mt-3">
+        ABC Restaurant was founded in 1985 by a passionate group of culinary enthusiasts who wanted to bring a fusion of traditional Sri Lankan flavors with modern culinary techniques. Starting as a small family-owned restaurant in Colombo, it quickly became renowned for its commitment to quality, fresh ingredients, and exceptional service. Over the years, ABC Restaurant expanded to multiple locations across Sri Lanka, each branch offering a unique dining experience while staying true to the original vision of delivering unforgettable meals in a welcoming atmosphere. Today, ABC Restaurant continues to be a beloved dining destination, celebrated for its rich history and innovative cuisine.
+      </p>
+                <a href="#" class="btn btn-gold btn-lg mt-3" id="ourStoryBtn">Our Story</a>
+            </div>
+            <div class="col-md-6 text-center">
+                
+            </div>
         </div>
+    </section>
+
+
+
     </section>
 
     <!-- Services Section -->
@@ -34,20 +146,30 @@
             <h2>Our Services</h2>
             <div class="services-grid">
                 <div class="service-item">
-                    <span class="las la-utensils"></span>
-                    <h3>Dine-In</h3>
-                    <p>Enjoy a cozy dining experience at our restaurants with a variety of cuisines to choose from.</p>
-                </div>
-                <div class="service-item">
-                    <span class="las la-truck"></span>
-                    <h3>Delivery</h3>
-                    <p>We bring the restaurant experience to your home with our fast and reliable delivery services.</p>
-                </div>
-                <div class="service-item">
-                    <span class="las la-glass-cheers"></span>
-                    <h3>Special Events</h3>
-                    <p>Book our venue for your special occasions with customized menus and decor.</p>
-                </div>
+    <span class="las la-utensils"></span>
+    <h3>Dine-In</h3>
+    <p>
+        <img src="images/gallery3.avif" alt="Dine-In" class="service-item" style="width: 300px; height: auto;">
+        Enjoy a cozy dining experience at our restaurants with a variety of cuisines to choose from.
+    </p>
+</div>
+<div class="service-item">
+    <span class="las la-truck"></span>
+    <h3>Delivery</h3>
+    <p>
+        <img src="images/delivery.jpg" alt="Delivery" class="service-item" style="width: 300px; height: auto;">
+        We bring the restaurant experience to your home with our fast and reliable delivery services.
+    </p>
+</div>
+<div class="service-item">
+    <span class="las la-glass-cheers"></span>
+    <h3>Special Events</h3>
+    <p>
+        <img src="images/special.avif" alt="Special Events" class="service-item" style="width: 300px; height: auto;">
+        Book our venue for your special occasions with customized menus and decor.
+    </p>
+</div>
+
             </div>
         </div>
     </section>
@@ -81,19 +203,35 @@
         </div>
     </section>
 
-
-    <!-- Gallery Section -->
-    <section class="gallery">
-        <div class="container">
-            <h2>Gallery</h2>
-            <div class="gallery-grid">
-                <img src="images/gallery1.jpg" alt="Gallery Image 1">
-                <img src="images/gallery2.jpg" alt="Gallery Image 2">
-                <img src="images/gallery3.jpg" alt="Gallery Image 3">
-                <img src="images/gallery4.jpg" alt="Gallery Image 4">
+  <!-- Gallery Section -->
+<section class="gallery">
+    <div class="container">
+        <h2>Our Branches</h2>
+        <div class="branches-row">
+            <div class="gallery-item text-center">
+                <img src="images/gallery1.avif" alt="Kandy Branch" class="img-fluid">
+                <h4>Kandy Branch</h4>
+                <p>Nestled in the heart of Kandy, our branch offers a serene dining experience with stunning views of the hills. Enjoy authentic local flavors in a warm, welcoming atmosphere</p>
+            </div>
+            <div class="gallery-item text-center">
+                <img src="images/gallery2.avif" alt="Colombo Branch" class="img-fluid">
+                <h4>Colombo Branch</h4>
+                <p>Located in the bustling city of Colombo, this branch is the perfect spot for urban dining with a contemporary twist. Relish a fusion of traditional and modern cuisines.</p>
+            </div>
+            <div class="gallery-item text-center">
+                <img src="images/gallery3.avif" alt="Kegalle Branch" class="img-fluid">
+                <h4>Kegalle Branch</h4>
+                <p>Our Kegalle branch is known for its rustic charm and homely ambiance. It’s the ideal place to unwind with family and friends while savoring our signature dishes.</p>
+            </div>
+            <div class="gallery-item text-center">
+                <img src="images/gallery4.jpg" alt="Negambo Branch" class="img-fluid">
+                <h4>Negambo Branch</h4>
+                <p>Situated near the beautiful beaches of Negambo, this branch offers a relaxed, coastal dining experience. Enjoy fresh seafood and stunning ocean views.</p>
             </div>
         </div>
-    </section>
+    </div>
+</section>
+
 
     <!-- Contact Information and Quick Links Section -->
     <section class="contact-info">
@@ -117,7 +255,7 @@
                         <li><a href="#">Menu</a></li>
                         <li><a href="#">Our Services</a></li>
                         <li><a href="#">Reservation</a></li>
-                        <li><a href="#">Querries</a></li>
+                        <li><a href="#">Queries</a></li>
                         <li><a href="#">Gallery</a></li>
                     </ul>
                 </div>
@@ -147,5 +285,14 @@
     <footer>
         <jsp:include page="./footer.jsp" />
     </footer>
+
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
 </body>
 </html>

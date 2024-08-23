@@ -159,7 +159,7 @@
         <ul class="nav-links">
             <li><a href="#">Home</a></li>
             <li><a href="menu">Menu</a></li> <!-- Updated link to Menu.jsp -->
-            <li><a href="#">Our Services</a></li>
+            <li><a href="ServicesPage.jsp">Our Services</a></li>
             <li><a href="reservation.jsp">Reservations</a></li>
             <li><a href="#">Quarries</a></li>
             <li><a href="#">Gallery</a></li>
