@@ -147,14 +147,24 @@
             <div class="container-fluid px-4">
                 <div class="row g-3 my-2">
                     <div class="col-md-4">
-                        <div class="card shadow-sm d-flex justify-content-between align-items-center">
-                            <div>
-                                <h3 class="fs-2">107,200</h3>
-                                <p class="fs-5">Manage Reservations</p>
-                            </div>
-                            <i class="fas fa-box-open fs-1 primary-text"></i>
-                        </div>
-                    </div>
+    <div class="card">
+        <div class="card-head">
+            <h2>107,200</h2>
+            <span class="fas fa-box-open fs-1 primary-text"></span>
+        </div>
+        <div class="card-progress">
+            <small>
+                <a href="http://localhost:8085/abc_restaurant_final/staffReservations?action=list" style="text-decoration:none;color:inherit;">
+                    Manage Reservations
+                </a>
+            </small>
+            <div class="card-indicator">
+                <div class="indicator one" style="width: 60%"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
                     <div class="col-md-4">
                         <div class="card shadow-sm d-flex justify-content-between align-items-center">
                             <div>

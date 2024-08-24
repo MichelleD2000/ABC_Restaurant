@@ -37,6 +37,12 @@
   	<description></description>
   	<servlet-class>com.abc.controller.ReservationController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>StaffReservationController</servlet-name>
+  	<display-name>StaffReservationController</display-name>
+  	<description></description>
+  	<servlet-class>com.abc.controller.StaffReservationController</servlet-class>
+  </servlet>
   
   <servlet-mapping>
   	<servlet-name>ProductController</servlet-name>
@@ -54,6 +60,10 @@
   <servlet-mapping>
   	<servlet-name>ReservationController</servlet-name>
   	<url-pattern>/ReservationController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>StaffReservationController</servlet-name>
+  	<url-pattern>/StaffReservationController</url-pattern>
   </servlet-mapping>
 
   

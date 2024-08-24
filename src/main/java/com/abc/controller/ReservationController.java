@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.SQLException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -46,8 +45,13 @@ public class ReservationController extends HttpServlet {
 
         if (isReserved) {
             request.setAttribute("reservation", reservation);
+            
             // Forward to reservation-success.jsp to show the reservation details
             request.getRequestDispatcher("reservation-success.jsp").forward(request, response);
+
+            // Additionally redirect to listReservation.jsp and listStaffReservation.jsp after a short delay (this is optional and more complex, depending on the behavior you want)
+            response.sendRedirect("WEB-INF/view/listReservation.jsp");
+            response.sendRedirect("WEB-INF/view/listStaffReservation.jsp");
         } else {
             response.sendRedirect("reservation-error.jsp");
         }
@@ -98,6 +102,4 @@ public class ReservationController extends HttpServlet {
 
         request.getRequestDispatcher("WEB-INF/view/listReservation.jsp").forward(request, response);
     }
-
-   
 }
