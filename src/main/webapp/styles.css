@@ -394,3 +394,62 @@ body, html {
     }
 }
 
+/*services*/
+
+body {
+    font-family: 'Playfair Display', serif; /* Updated font */
+    background-color: #ffffff;
+    color:white;
+    margin: 0;
+    padding: 0;
+}
+
+.private-events {
+    text-align: center;
+    padding: 50px 20px;
+}
+
+.sub-heading {
+    font-size: 28px; /* Adjusted font size */
+    font-style: italic;
+    font-weight: 400; /* Ensuring the weight matches */
+    color: #999999; /* Lighter grey for sub-heading */
+    margin: 0;
+    letter-spacing: 0.05em; /* Slight letter spacing */
+}
+
+.main-heading {
+    font-size: 42px; /* Adjusted font size */
+    font-weight: 700; /* Bold */
+    color: #333333; /* Darker grey */
+    margin: 10px 0;
+    font-family: 'Playfair Display', serif; /* Consistent font for the heading */
+}
+
+.divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.line {
+    width: 60px; /* Adjusted width */
+    height: 1px;
+    background-color: #cccccc; /* Updated color to match */
+    margin: 0 15px; /* Adjusted margin */
+}
+
+.icon {
+    font-size: 20px; /* Smaller font size for the icon */
+    color: #cccccc; /* Updated color */
+}
+
+.description {
+    font-size: 16px; /* Slightly smaller font size */
+    line-height: 1.8; /* Adjusted line height */
+    max-width: 750px; /* Adjusted max-width */
+    margin: 0 auto;
+    color: #666666;
+    font-family: 'Arial', sans-serif; /* Ensuring readability with a simpler font */
+}

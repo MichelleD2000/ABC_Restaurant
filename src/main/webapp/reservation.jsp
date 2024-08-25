@@ -358,7 +358,7 @@
     <div class="reservation-details">
         <div class="reservation-text">
             <h2>Make a Reservation</h2>
-            <h3>Private Dining & Events</h3>
+            <h3>Private Dining</h3>
             <hr class="divider">
             <p>
                "I am afflicted by love, pleasure, and work. I use my own reasoning, and I am committed to my responsibilities. I am free from pain, and I avoid trivial matters. I strive for a rational mindset, and I hold onto what is essential. I move toward higher thinking, and I listen to what is possible."
