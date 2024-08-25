@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -48,6 +51,9 @@ public class BookingController extends HttpServlet {
                 addBooking(request, response);
             } else if (action.equals("update")) {
                 updateBooking(request, response);
+            } 
+            else {
+            	response.sendRedirect("booking?action=list");
             }
         } catch (SQLException e) {
             throw new ServletException(e);
@@ -106,5 +112,43 @@ public class BookingController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         bookingService.deleteBooking(id);
         response.sendRedirect("booking?action=list");
+    }
+
+    private void handleBooking(HttpServletRequest request, HttpServletResponse response) throws IOException {
+        String eventType = request.getParameter("eventType");
+        String eventName = request.getParameter("eventName");
+        String eventDate = request.getParameter("eventDate");
+        String eventTime = request.getParameter("eventTime");
+        String guests = request.getParameter("guests");
+        String customerName = request.getParameter("customerName");
+        String phone = request.getParameter("phone");
+        String email = request.getParameter("email");
+
+        try {
+            // Database connection
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/abc_rest", "root", "");
+
+            // SQL query
+            String query = "INSERT INTO bookings (eventType, eventName, eventDate, eventTime, guests, customerName, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+            PreparedStatement ps = conn.prepareStatement(query);
+            ps.setString(1, eventType);
+            ps.setString(2, eventName);
+            ps.setString(3, eventDate);
+            ps.setString(4, eventTime);
+            ps.setString(5, guests);
+            ps.setString(6, customerName);
+            ps.setString(7, phone);
+            ps.setString(8, email);
+
+            // Execute query
+           
+
+            // Redirect to success page
+            response.sendRedirect("WEB-INF/view/listBooking.jsp");
+        } catch (Exception e) {
+            e.printStackTrace();
+            response.sendRedirect("error.jsp");
+        }
     }
 }

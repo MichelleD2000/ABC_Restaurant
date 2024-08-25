@@ -13,7 +13,7 @@
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 
-    body {
+    event-body {
         font-family: 'Playfair Display', serif; /* Using Playfair Display */
         background-color: black;
         color: white; /* Changed to white for readability on a black background */
@@ -126,6 +126,82 @@
     .event-info div span {
         font-weight: 700; /* Bold labels */
     }
+    
+    body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f8f8f8;
+    margin: 0;
+    padding: 0;
+}
+
+.reservation-container {
+    max-width: 800px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    text-align: center;
+}
+
+.reservation-title {
+    font-size: 28px;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+.subtitle {
+    font-size: 18px;
+    font-style: italic;
+    color: #aaa;
+    display: block;
+}
+
+.reservation-form {
+    margin-top: 20px;
+}
+
+.form-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+input[type="text"],
+input[type="date"],
+input[type="time"],
+input[type="number"],
+input[type="tel"],
+input[type="email"] {
+    width: 48%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.submit-btn {
+    padding: 10px 20px;
+    background-color: #d4a76a;
+    color: #ffffff;
+    border: none;
+    border-radius: 5px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.submit-btn:hover {
+    background-color: #b08c5a;
+}
+
+.powered-by {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #aaa;
+}
+    
+    
 </style>
 </head>
 <body>
@@ -188,6 +264,38 @@
         <p class="description">
             Dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati.
         </p>
+        
+        
+        
+        <div class="reservation-container">
+        <h2 class="reservation-title">
+            <span class="subtitle">Event Reservation</span>
+            
+        </h2>
+        <form action="EventBookingServlet" method="POST" class="reservation-form">
+            <div class="form-row">
+                <input type="text" name="eventType" placeholder="Event Type" required>
+                <input type="text" name="eventName" placeholder="Event Name" required>
+            </div>
+            <div class="form-row">
+                <input type="date" name="eventDate" placeholder="Date" required>
+                <input type="time" name="eventTime" placeholder="Time" required>
+            </div>
+            <div class="form-row">
+                <input type="number" name="guests" placeholder="Guests" required>
+                <input type="text" name="customerName" placeholder="Name" required>
+            </div>
+            <div class="form-row">
+                <input type="tel" name="phone" placeholder="Phone" required>
+                <input type="email" name="email" placeholder="Email" required>
+            </div>
+            <div class="form-row">
+                <button type="submit" class="submit-btn">Book Event</button>
+            </div>
+        </form>
+        <p class="powered-by">Powered by Your Service</p>
+    </div>
+        
 
         <div class="event-info">
             <div><span>Hall Info:</span> 2452 Sq Feet Free Space</div>
