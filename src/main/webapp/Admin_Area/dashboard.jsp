@@ -75,7 +75,8 @@
                             <span class="las la-envelope"></span>
                         </div>
                         <div class="card-progress">
-                            <small>Manage Services</small>
+                            <small><a href="http://localhost:8085/abc_restaurant_final/booking?action=list" style="text-decoration:none;color:inherit;">
+                            Manage Services</a></small>
                             <div class="card-indicator">
                                 <div class="indicator four" style="width: 90%"></div>
                             </div>
@@ -83,18 +84,20 @@
                     </div>
 
                     <!-- Card 5 -->
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>47,500</h2>
-                            <span class="las la-chart-bar"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>Manage Offers and gallery</small>
-                            <div class="card-indicator">
-                                <div class="indicator five" style="width: 90%"></div>
-                            </div>
-                        </div>
-                    </div>
+                 <!-- Updated Card 5 in Admin Dashboard -->
+<div class="card">
+    <div class="card-head">
+        <h2>47,500</h2>
+        <span class="las la-chart-bar"></span>
+    </div>
+    <div class="card-progress">
+        <small><a href="http://localhost:8085/abc_restaurant_final/gallery?action=upload" style="text-decoration:none;color:inherit;">Manage Offers and Gallery</a></small>
+        <div class="card-indicator">
+            <div class="indicator five" style="width: 90%"></div>
+        </div>
+    </div>
+</div>
+
 
                     <!-- Card 6 -->
                     <div class="card">

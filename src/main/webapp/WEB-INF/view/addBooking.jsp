@@ -10,40 +10,50 @@
 <body>
 <h2>Add Booking</h2>
 <form action="booking" method="post">
-    <input type="hidden" name="action" value="add">
+    <input type="hidden" name="action" value="createBooking">
+    
     <div class="form-group">
         <label for="eventType">Event Type:</label>
-        <input type="text" id="eventType" name="eventType" class="form-control" required>
+        <input type="text" name="eventType" id="eventType" required class="form-control">
     </div>
+    
     <div class="form-group">
         <label for="eventName">Event Name:</label>
-        <input type="text" id="eventName" name="eventName" class="form-control" required>
+        <input type="text" name="eventName" id="eventName" required class="form-control">
     </div>
+    
     <div class="form-group">
-        <label for="date">Date:</label>
-        <input type="date" id="date" name="date" class="form-control" required>
+        <label for="date">Date:</label> <!-- Ensure correct lowercase 'date' -->
+        <input type="date" name="date" id="date" required class="form-control">
     </div>
+    
     <div class="form-group">
-        <label for="time">Time:</label>
-        <input type="time" id="time" name="time" class="form-control" required>
+        <label for="time">Time:</label> <!-- Ensure correct lowercase 'time' -->
+        <input type="time" name="time" id="time" required class="form-control">
     </div>
+    
     <div class="form-group">
         <label for="guests">Number of Guests:</label>
-        <input type="number" id="guests" name="guests" class="form-control" required>
+        <input type="number" name="guests" id="guests" required class="form-control">
     </div>
+    
     <div class="form-group">
         <label for="name">Name:</label>
-        <input type="text" id="name" name="name" class="form-control" required>
+        <input type="text" name="name" id="name" required class="form-control">
     </div>
+    
     <div class="form-group">
         <label for="phone">Phone:</label>
-        <input type="text" id="phone" name="phone" class="form-control" required>
+        <input type="tel" name="phone" id="phone" required class="form-control">
     </div>
+    
     <div class="form-group">
         <label for="email">Email:</label>
-        <input type="email" id="email" name="email" class="form-control" required>
+        <input type="email" name="email" id="email" required class="form-control">
     </div>
-    <button type="submit" class="btn btn-primary">Add Booking</button>
+    
+    <button type="submit" class="btn btn-primary">Submit</button>
 </form>
+
 </body>
 </html>

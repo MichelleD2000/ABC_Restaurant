@@ -57,12 +57,9 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h2>Booking List</h2>
-            <a href="booking?action=add" class="btn btn-primary">Add Booking</a>
-        </div>
-        <table class="table table-striped table-bordered">
+     <div class="container mt-4">
+        <h2 class="mb-4">Booking List</h2>
+        <table class="table table-dark table-striped">
             <thead>
                 <tr>
                     <th>ID</th>
@@ -80,23 +77,33 @@
             <tbody>
                 <c:forEach var="booking" items="${bookings}">
                     <tr>
-                        <td>${booking.id}</td>
-                        <td>${booking.eventType}</td>
-                        <td>${booking.eventName}</td>
-                        <td>${booking.date}</td>
-                        <td>${booking.time}</td>
-                        <td>${booking.guests}</td>
-                        <td>${booking.name}</td>
-                        <td>${booking.phone}</td>
-                        <td>${booking.email}</td>
+                        <td><c:out value="${booking.id}"/></td>
+                        <td><c:out value="${booking.eventType}"/></td>
+                        <td><c:out value="${booking.eventName}"/></td>
+                        <td><c:out value="${booking.date}"/></td>
+                        <td><c:out value="${booking.time}"/></td>
+                        <td><c:out value="${booking.guests}"/></td>
+                        <td><c:out value="${booking.name}"/></td>
+                        <td><c:out value="${booking.phone}"/></td>
+                        <td><c:out value="${booking.email}"/></td>
                         <td>
-                            <a href="booking?action=edit&id=${booking.id}" class="btn btn-warning">Edit</a>
-                            <a href="booking?action=delete&id=${booking.id}" class="btn btn-danger">Delete</a>
+                            <a href="booking?action=edit&id=${booking.id}" class="btn btn-warning btn-sm">Edit</a>
+                            <a href="booking?action=delete&id=${booking.id}" class="btn btn-danger btn-sm" onclick="return confirm('Are you sure?')">Delete</a>
                         </td>
                     </tr>
                 </c:forEach>
             </tbody>
         </table>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <c:forEach var="i" begin="1" end="${noOfPages}">
+                    <li class="page-item <c:if test="${i == currentPage}">active</c:if>">
+                        <a class="page-link" href="booking?page=${i}">${i}</a>
+                    </li>
+                </c:forEach>
+            </ul>
+        </nav>
+        <a href="booking?action=add" class="btn btn-primary mt-4">Add New Booking</a>
     </div>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.3/js/bootstrap.bundle.min.js"></script>
 </body>

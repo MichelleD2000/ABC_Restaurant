@@ -272,27 +272,30 @@ input[type="email"] {
             <span class="subtitle">Event Reservation</span>
             
         </h2>
-        <form action="EventBookingServlet" method="POST" class="reservation-form">
-            <div class="form-row">
-                <input type="text" name="eventType" placeholder="Event Type" required>
-                <input type="text" name="eventName" placeholder="Event Name" required>
-            </div>
-            <div class="form-row">
-                <input type="date" name="eventDate" placeholder="Date" required>
-                <input type="time" name="eventTime" placeholder="Time" required>
-            </div>
-            <div class="form-row">
-                <input type="number" name="guests" placeholder="Guests" required>
-                <input type="text" name="customerName" placeholder="Name" required>
-            </div>
-            <div class="form-row">
-                <input type="tel" name="phone" placeholder="Phone" required>
-                <input type="email" name="email" placeholder="Email" required>
-            </div>
-            <div class="form-row">
-                <button type="submit" class="submit-btn">Book Event</button>
-            </div>
-        </form>
+       <form action="booking" method="POST" class="reservation-form">
+    <input type="hidden" name="action" value="createBooking">
+    <!-- Your other form fields here -->
+    <div class="form-row">
+        <input type="text" name="eventType" placeholder="Event Type" required>
+        <input type="text" name="eventName" placeholder="Event Name" required>
+    </div>
+    <div class="form-row">
+        <input type="date" name="date" placeholder="Date" required>
+        <input type="time" name="time" placeholder="Time" required>
+    </div>
+    <div class="form-row">
+        <input type="number" name="guests" placeholder="Guests" required>
+        <input type="text" name="name" placeholder="Name" required>
+    </div>
+    <div class="form-row">
+        <input type="tel" name="phone" placeholder="Phone" required>
+        <input type="email" name="email" placeholder="Email" required>
+    </div>
+    <div class="form-row">
+        <button type="submit" class="submit-btn">Book Event</button>
+    </div>
+</form>
+
         <p class="powered-by">Powered by Your Service</p>
     </div>
         

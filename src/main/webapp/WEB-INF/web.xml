@@ -49,6 +49,18 @@
   	<description></description>
   	<servlet-class>com.abc.controller.BookingController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>GalleryController</servlet-name>
+  	<display-name>GalleryController</display-name>
+  	<description></description>
+  	<servlet-class>com.abc.controller.GalleryController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>Gallery</servlet-name>
+  	<display-name>Gallery</display-name>
+  	<description></description>
+  	<servlet-class>com.abc.controller.Gallery</servlet-class>
+  </servlet>
  
   
   <servlet-mapping>
@@ -75,6 +87,14 @@
   <servlet-mapping>
   	<servlet-name>BookingController</servlet-name>
   	<url-pattern>/BookingController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>GalleryController</servlet-name>
+  	<url-pattern>/GalleryController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>Gallery</servlet-name>
+  	<url-pattern>/Gallery</url-pattern>
   </servlet-mapping>
   
 

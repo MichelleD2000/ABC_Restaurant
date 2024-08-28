@@ -9,51 +9,72 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.PreparedStatement;
 import java.sql.SQLException;
 import java.util.List;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 
 @WebServlet("/booking")
 public class BookingController extends HttpServlet {
-    private static final long serialVersionUID = 1L;
     private BookingService bookingService;
 
     @Override
-    public void init() throws ServletException {
-        bookingService = BookingService.getInstance();
-    }
-
-    @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String action = request.getParameter("action");
-        try {
-            if (action == null || action.equals("list")) {
-                listBookings(request, response);
-            } else if (action.equals("add")) {
-                showAddForm(request, response);
-            } else if (action.equals("edit")) {
-                showEditForm(request, response);
-            } else if (action.equals("delete")) {
-                deleteBooking(request, response);
-            }
-        } catch (SQLException e) {
-            throw new ServletException(e);
-        }
+    public void init() {
+        bookingService = BookingService.getInstance();  // Using Singleton pattern
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
+
+        if (action != null) {
+            try {
+                switch (action) {
+                    case "createBooking":
+                    case "add":
+                        addBooking(request, response);
+                        break;
+                    case "update":
+                        updateBooking(request, response);
+                        break;
+                    default:
+                        response.sendRedirect("WEB-INF/view/listBookings.jsp");
+                        break;
+                }
+            } catch (SQLException e) {
+                throw new ServletException(e);
+            }
+        } else {
+            response.sendError(HttpServletResponse.SC_BAD_REQUEST, "Action parameter is missing");
+        }
+    }
+
+    @Override
+    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) {
+            action = "list";
+        }
+
         try {
-            if (action.equals("add")) {
-                addBooking(request, response);
-            } else if (action.equals("update")) {
-                updateBooking(request, response);
-            } 
-            else {
-            	response.sendRedirect("booking?action=list");
+            switch (action) {
+                case "list":
+                    listBookings(request, response);
+                    break;
+                case "add":
+                    showAddForm(request, response);
+                    break;
+                case "edit":
+                    showEditForm(request, response);
+                    break;
+                case "delete":
+                    deleteBooking(request, response);
+                    break;
+                default:
+                    listBookings(request, response);
+                    break;
             }
         } catch (SQLException e) {
             throw new ServletException(e);
@@ -61,8 +82,26 @@ public class BookingController extends HttpServlet {
     }
 
     private void listBookings(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
-        List<Booking> bookingList = bookingService.getAllBookings();
-        request.setAttribute("bookings", bookingList);
+        int page = 1;
+        int recordsPerPage = 10;
+
+        if (request.getParameter("page") != null) {
+            try {
+                page = Integer.parseInt(request.getParameter("page"));
+            } catch (NumberFormatException e) {
+                page = 1; // Default to the first page if there's an issue with the page parameter
+            }
+        }
+
+        // Retrieve bookings and pagination information
+        List<Booking> bookings = bookingService.getAllBookings((page - 1) * recordsPerPage, recordsPerPage);
+        int noOfRecords = bookingService.getNoOfRecords();
+        int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
+
+        request.setAttribute("bookings", bookings);
+        request.setAttribute("noOfPages", noOfPages);
+        request.setAttribute("currentPage", page);
+
         request.getRequestDispatcher("WEB-INF/view/listBookings.jsp").forward(request, response);
     }
 
@@ -80,9 +119,16 @@ public class BookingController extends HttpServlet {
         String phone = request.getParameter("phone");
         String email = request.getParameter("email");
 
+       
         Booking booking = new Booking(0, eventType, eventName, date, time, guests, name, phone, email);
-        bookingService.addBooking(booking);
-        response.sendRedirect("booking?action=list");
+        boolean isBooked = bookingService.addBooking(booking);
+
+        if (isBooked) {
+            request.setAttribute("booking", booking);
+            request.getRequestDispatcher("booking-success.jsp").forward(request, response);
+        } else {
+            response.sendRedirect("booking-error.jsp");
+        }
     }
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
@@ -112,43 +158,5 @@ public class BookingController extends HttpServlet {
         int id = Integer.parseInt(request.getParameter("id"));
         bookingService.deleteBooking(id);
         response.sendRedirect("booking?action=list");
-    }
-
-    private void handleBooking(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        String eventType = request.getParameter("eventType");
-        String eventName = request.getParameter("eventName");
-        String eventDate = request.getParameter("eventDate");
-        String eventTime = request.getParameter("eventTime");
-        String guests = request.getParameter("guests");
-        String customerName = request.getParameter("customerName");
-        String phone = request.getParameter("phone");
-        String email = request.getParameter("email");
-
-        try {
-            // Database connection
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/abc_rest", "root", "");
-
-            // SQL query
-            String query = "INSERT INTO bookings (eventType, eventName, eventDate, eventTime, guests, customerName, phone, email) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-            PreparedStatement ps = conn.prepareStatement(query);
-            ps.setString(1, eventType);
-            ps.setString(2, eventName);
-            ps.setString(3, eventDate);
-            ps.setString(4, eventTime);
-            ps.setString(5, guests);
-            ps.setString(6, customerName);
-            ps.setString(7, phone);
-            ps.setString(8, email);
-
-            // Execute query
-           
-
-            // Redirect to success page
-            response.sendRedirect("WEB-INF/view/listBooking.jsp");
-        } catch (Exception e) {
-            e.printStackTrace();
-            response.sendRedirect("error.jsp");
-        }
     }
 }
