@@ -88,6 +88,7 @@
                         <td>${image.title}</td>
                         <td>${image.description}</td>
                         <td>
+                         
                             <a href="gallery?action=edit&id=${image.id}" class="btn">Edit</a>
                             <a href="gallery?action=delete&id=${image.id}" class="btn-delete" onclick="return confirm('Are you sure you want to delete this image?');">Delete</a>
                         </td>

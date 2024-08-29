@@ -7,11 +7,10 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.abc.service.GalleryService;
 
-@WebServlet("/gallery")
-public class Gallery extends HttpServlet { 
+@WebServlet("/imageGallery")
+public class images extends HttpServlet { 
     private static final long serialVersionUID = 1L;
     private GalleryService galleryService;
 
@@ -30,7 +29,7 @@ public class Gallery extends HttpServlet {
             e.printStackTrace();
             // Handle the exception, e.g., forward to an error page or display an error message
         }
-        
+       
         request.getRequestDispatcher("gallery.jsp").forward(request, response);
     }
 }
