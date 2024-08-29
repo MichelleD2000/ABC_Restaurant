@@ -21,16 +21,21 @@ import java.util.List;
                  maxFileSize = 1024 * 1024 * 10,      // 10MB
                  maxRequestSize = 1024 * 1024 * 50)   // 50MB
 public class GalleryController extends HttpServlet {
+    private static final long serialVersionUID = 1L;
     private GalleryService galleryService;
 
     @Override
     public void init() throws ServletException {
-        galleryService = GalleryService.getInstance();
+        galleryService = GalleryService.getInstance(); // Singleton pattern
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
+        if (action == null) {
+            action = "gallery"; // Default action if none is provided
+        }
+
         try {
             switch (action) {
                 case "list":
@@ -48,28 +53,23 @@ public class GalleryController extends HttpServlet {
                 case "view":
                     showImageDetails(request, response);
                     break;
-                case "gallery":  // New action to display images in gallery.jsp
-                    showGalleryView(request, response);
-                    break;
+                case "gallery":  // Display images in gallery.jsp
                 default:
-                    listImages(request, response);
+                    showGalleryView(request, response);
                     break;
             }
         } catch (SQLException ex) {
             throw new ServletException(ex);
         }
     }
-    
-    
+
     private void showGalleryView(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<GalleryImage> images = galleryService.getAllImages();
-        request.setAttribute("images", images);  // Make sure "images" is used here
+        request.setAttribute("images", images);
         RequestDispatcher dispatcher = request.getRequestDispatcher("gallery.jsp");
         dispatcher.forward(request, response);
     }
 
-    
-    
     private void listImages(HttpServletRequest request, HttpServletResponse response) throws SQLException, ServletException, IOException {
         List<GalleryImage> images = galleryService.getAllImages();
         request.setAttribute("images", images);

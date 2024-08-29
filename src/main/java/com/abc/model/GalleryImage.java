@@ -16,7 +16,6 @@ public class GalleryImage {
         this.imageUrl = imageUrl;
     }
 
-    // Getters and Setters
     public int getId() {
         return id;
     }

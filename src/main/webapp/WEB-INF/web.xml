@@ -55,18 +55,14 @@
   	<description></description>
   	<servlet-class>com.abc.controller.GalleryController</servlet-class>
   </servlet>
-  <servlet>
-  	<servlet-name>images</servlet-name>
-  	<display-name>images</display-name>
-  	<description></description>
-  	<servlet-class>com.abc.controller.images</servlet-class>
-  </servlet>
+ 
   <servlet>
   	<servlet-name>QueryController</servlet-name>
   	<display-name>QueryController</display-name>
   	<description></description>
   	<servlet-class>com.abc.controller.QueryController</servlet-class>
   </servlet>
+  
  
   
  
@@ -99,10 +95,7 @@
   	<servlet-name>GalleryController</servlet-name>
   	<url-pattern>/GalleryController</url-pattern>
   </servlet-mapping>
-  <servlet-mapping>
-  	<servlet-name>images</servlet-name>
-  	<url-pattern>/images</url-pattern>
-  </servlet-mapping>
+  
   <servlet-mapping>
   	<servlet-name>QueryController</servlet-name>
   	<url-pattern>/QueryController</url-pattern>

@@ -246,9 +246,9 @@
                             </div>
                             <div class="card-progress">
                                 <small>
-                                    <a href="http://localhost:8085/abc_restaurant_final/staffReservations?action=list"
+                                    <a href="http://localhost:8085/abc_restaurant_final/WEB-INF/view/listQuery.jsp"
                                         style="text-decoration: none; color: inherit;">
-                                        Queries
+                                       Quaries
                                     </a>
                                 </small>
                                 <div class="card-indicator">

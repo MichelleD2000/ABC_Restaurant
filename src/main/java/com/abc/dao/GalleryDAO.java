@@ -50,24 +50,6 @@ public class GalleryDAO {
         }
     }
 
-    // Retrieve an image by its ID
-    public GalleryImage getImageById(int id) throws SQLException {
-        String query = "SELECT * FROM gallery WHERE id = ?";
-        try (Connection connection = DBConnection.getInstance().getConnection();
-             PreparedStatement statement = connection.prepareStatement(query)) {
-            statement.setInt(1, id);
-            try (ResultSet resultSet = statement.executeQuery()) {
-                if (resultSet.next()) {
-                    String title = resultSet.getString("title");
-                    String description = resultSet.getString("description");
-                    String imageUrl = resultSet.getString("imageUrl");
-                    return new GalleryImage(id, title, description, imageUrl);
-                }
-            }
-        }
-        return null;
-    }
-
     // Update an existing image in the gallery
     public void updateImage(GalleryImage image) throws SQLException {
         String query = "UPDATE gallery SET title = ?, description = ?, imageUrl = ? WHERE id = ?";
@@ -79,5 +61,24 @@ public class GalleryDAO {
             statement.setInt(4, image.getId());
             statement.executeUpdate();
         }
+    }
+
+    // Retrieve a specific image by its ID
+    public GalleryImage getImageById(int id) throws SQLException {
+        GalleryImage image = null;
+        String query = "SELECT * FROM gallery WHERE id = ?";
+        try (Connection connection = DBConnection.getInstance().getConnection();
+             PreparedStatement statement = connection.prepareStatement(query)) {
+            statement.setInt(1, id);
+            try (ResultSet resultSet = statement.executeQuery()) {
+                if (resultSet.next()) {
+                    String title = resultSet.getString("title");
+                    String description = resultSet.getString("description");
+                    String imageUrl = resultSet.getString("imageUrl");
+                    image = new GalleryImage(id, title, description, imageUrl);
+                }
+            }
+        }
+        return image;
     }
 }

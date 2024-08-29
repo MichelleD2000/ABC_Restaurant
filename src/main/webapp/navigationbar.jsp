@@ -161,8 +161,8 @@
             <li><a href="menu">Menu</a></li> <!-- Updated link to Menu.jsp -->
             <li><a href="ServicesPage.jsp">Our Services</a></li>
             <li><a href="reservation.jsp">Reservations</a></li>
-            <li><a href="#">Quarries</a></li>
-            <li><a href="gallery.jsp">Gallery</a></li>
+            <li><a href="Queries.jsp">Quarries</a></li>
+            <li><a href="image">Gallery</a></li>
         </ul>
 
         <!-- Login/Registration Icon and Dropdown -->

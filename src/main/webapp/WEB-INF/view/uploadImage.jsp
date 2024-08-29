@@ -1,33 +1,31 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Upload New Image</title>
-    <link rel="stylesheet" href="css/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Image</title>
+    <link rel="stylesheet" href="<c:url value='/css/style.css' />">
 </head>
 <body>
-
-<div class="container">
     <h1>Upload New Image</h1>
     <form action="gallery" method="post" enctype="multipart/form-data">
-        <div class="form-group">
+        <div>
             <label for="title">Title:</label>
-            <input type="text" name="title" id="title" required>
+            <input type="text" id="title" name="title" required>
         </div>
-        <div class="form-group">
+        <div>
             <label for="description">Description:</label>
-            <textarea name="description" id="description" required></textarea>
+            <textarea id="description" name="description" required></textarea>
         </div>
-        <div class="form-group">
+        <div>
             <label for="image">Image:</label>
-            <input type="file" name="image" id="image" required>
+            <input type="file" id="image" name="image" required>
         </div>
-        <button type="submit" class="btn">Upload Image</button>
+        <div>
+            <input type="submit" value="Upload Image">
+        </div>
+        <input type="hidden" name="action" value="upload">
     </form>
-    <a class="back-link" href="gallery?action=list">Back to Gallery</a>
-</div>
-
+    <a href="gallery?action=list">Back to Gallery List</a>
 </body>
 </html>

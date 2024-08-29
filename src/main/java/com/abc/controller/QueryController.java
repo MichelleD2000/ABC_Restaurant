@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.List;
 
 @WebServlet("/queries")
 public class QueryController extends HttpServlet {
@@ -17,39 +18,44 @@ public class QueryController extends HttpServlet {
 
     @Override
     public void init() throws ServletException {
-        queryService = QueryService.getInstance();
+        queryService = new QueryService();
     }
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String customerName = request.getParameter("customerName");
-        String customerEmail = request.getParameter("customerEmail");
-        String question = request.getParameter("question");
+        String name = request.getParameter("name");
+        String email = request.getParameter("email");
+        String message = request.getParameter("message");
 
-        Query query = new Query();
-        query.setCustomerName(customerName);
-        query.setCustomerEmail(customerEmail);
-        query.setQuestion(question);
-
+        Query query = new Query(0, name, email, message);
         try {
-            queryService.saveQuery(query);
-            request.setAttribute("message", "Your query has been submitted successfully!");
+            queryService.addQuery(query);
+            response.sendRedirect("WEB-INF/view/listQuery.jsp"); // Redirect to listQuery.jsp after adding
         } catch (SQLException e) {
-            request.setAttribute("error", "There was an error submitting your query. Please try again.");
-            e.printStackTrace();
+            throw new ServletException("Error adding query", e);
         }
-
-        request.getRequestDispatcher("Queries.jsp").forward(request, response);
     }
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        try {
-            request.setAttribute("queries", queryService.getAllQueries());
-        } catch (SQLException e) {
-            request.setAttribute("error", "Unable to load queries.");
-            e.printStackTrace();
+        String action = request.getParameter("action");
+        if ("delete".equals(action)) {
+            int id = Integer.parseInt(request.getParameter("id"));
+            try {
+                queryService.removeQuery(id);
+                response.sendRedirect("WEB-INF/view/listQuery.jsp"); // Redirect to listQuery.jsp after deleting
+            } catch (SQLException e) {
+                throw new ServletException("Error deleting query", e);
+            }
+        } else {
+            List<Query> queries;
+            try {
+                queries = queryService.getQueries();
+                request.setAttribute("queries", queries);
+                request.getRequestDispatcher("WEB-INF/view/listQuery.jsp").forward(request, response);
+            } catch (SQLException e) {
+                throw new ServletException("Error retrieving queries", e);
+            }
         }
-        request.getRequestDispatcher("StaffQueries.jsp").forward(request, response);
     }
 }
