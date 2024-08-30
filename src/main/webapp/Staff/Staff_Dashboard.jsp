@@ -246,7 +246,7 @@
                             </div>
                             <div class="card-progress">
                                 <small>
-                                    <a href="http://localhost:8085/abc_restaurant_final/WEB-INF/view/listQuery.jsp"
+                                    <a href="http://localhost:8085/abc_restaurant_final/listQueries?action=list"
                                         style="text-decoration: none; color: inherit;">
                                        Quaries
                                     </a>

@@ -30,7 +30,7 @@ public class QueryController extends HttpServlet {
         Query query = new Query(0, name, email, message);
         try {
             queryService.addQuery(query);
-            response.sendRedirect("WEB-INF/view/listQuery.jsp"); // Redirect to listQuery.jsp after adding
+            response.sendRedirect("WEB-INF/view/listQueries.jsp"); // Redirect to listQuery.jsp after adding
         } catch (SQLException e) {
             throw new ServletException("Error adding query", e);
         }
@@ -43,7 +43,7 @@ public class QueryController extends HttpServlet {
             int id = Integer.parseInt(request.getParameter("id"));
             try {
                 queryService.removeQuery(id);
-                response.sendRedirect("WEB-INF/view/listQuery.jsp"); // Redirect to listQuery.jsp after deleting
+                response.sendRedirect("WEB-INF/view/listQueries.jsp"); // Redirect to listQuery.jsp after deleting
             } catch (SQLException e) {
                 throw new ServletException("Error deleting query", e);
             }
@@ -52,7 +52,7 @@ public class QueryController extends HttpServlet {
             try {
                 queries = queryService.getQueries();
                 request.setAttribute("queries", queries);
-                request.getRequestDispatcher("WEB-INF/view/listQuery.jsp").forward(request, response);
+                request.getRequestDispatcher("WEB-INF/view/listQueries.jsp").forward(request, response);
             } catch (SQLException e) {
                 throw new ServletException("Error retrieving queries", e);
             }

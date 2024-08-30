@@ -11,7 +11,7 @@
           /* Other Styling */
      /* Other Styling */
         .history {
-           background: url('images/charming-outdoor-cafe-scene-with-warm-lights-modern-architecture-perfect-evening-gatherings-relaxing-moments_1302739-1265.jpg') no-repeat center center/cover;
+           backgroun: url('images/charming-outdoor-cafe-scene-with-warm-lights-modern-architecture-perfect-evening-gatherings-relaxing-moments_1302739-1265.jpg') no-repeat center center/cover;
     height: 100vh;
     display: flex;
     justify-content: center;
