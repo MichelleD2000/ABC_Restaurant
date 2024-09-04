@@ -129,7 +129,7 @@
                         <img src="${product.imageUrl}" alt="${product.name}" class="card-img-top">
                         <div class="card-body">
                             <h5 class="card-title">${product.name}</h5>
-                            <p class="price">${product.price} $</p>
+                            <p class="price">Rs.${product.price} </p>
                             <p class="card-text">${product.description}</p>
                             <form action="cart" method="post">
                                 <input type="hidden" name="productId" value="${product.productId}">

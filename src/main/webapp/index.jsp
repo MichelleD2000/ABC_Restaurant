@@ -194,7 +194,7 @@
                     <span class="las la-glass-cheers"></span>
                     <h3>Special Events</h3>
                     <p>
-                        <img src="images/special.avif" alt="Special Events" class="service-item" style="width: 300px; height: auto;">
+                        <img src="images/charming-outdoor-cafe-scene-with-warm-lights-modern-architecture-perfect-evening-gatherings-relaxing-moments_1302739-1265.jpg" alt="Special Events" class="service-item" style="width: 300px; height: auto;">
                         Book our venue for your special occasions with customized menus and decor.
                     </p>
                 </div>
@@ -236,27 +236,28 @@
         <div class="container">
             <h2>Our Branches</h2>
             <div class="branches-row">
-                <div class="gallery-item text-center">
-                    <img src="images/gallery1.avif" alt="Kandy Branch" class="img-fluid">
-                    <h4>Kandy Branch</h4>
-                    <p>Nestled in the heart of Kandy, our branch offers a serene dining experience with stunning views of the hills. Enjoy authentic local flavors in a warm, welcoming atmosphere</p>
-                </div>
-                <div class="gallery-item text-center">
-                    <img src="images/gallery2.avif" alt="Colombo Branch" class="img-fluid">
-                    <h4>Colombo Branch</h4>
-                    <p>Located in the bustling city of Colombo, this branch is the perfect spot for urban dining with a contemporary twist. Relish a fusion of traditional and modern cuisines.</p>
-                </div>
-                <div class="gallery-item text-center">
-                    <img src="images/gallery3.avif" alt="Galle Branch" class="img-fluid">
-                    <h4>Galle Branch</h4>
-                    <p>Our Galle branch offers a unique dining experience with its charming coastal ambiance. Enjoy a variety of dishes while taking in the picturesque ocean views.</p>
-                </div>
-                <div class="gallery-item text-center">
-                    <img src="images/gallery4.avif" alt="Jaffna Branch" class="img-fluid">
-                    <h4>Jaffna Branch</h4>
-                    <p>Experience the rich flavors of Jaffna at our branch, known for its vibrant and authentic dishes. A true reflection of the region's culinary heritage.</p>
-                </div>
-            </div>
+    <div class="gallery-item text-center">
+        <img src="images/gallery1.avif" alt="Kandy Branch" class="img-fluid">
+        <h4>Kandy Branch</h4>
+        <p>Nestled in the heart of Kandy, our branch offers a serene dining experience with stunning views of the hills. Enjoy authentic local flavors in a warm, welcoming atmosphere.</p>
+    </div>
+    <div class="gallery-item text-center">
+        <img src="images/gallery2.avif" alt="Colombo Branch" class="img-fluid">
+        <h4>Colombo Branch</h4>
+        <p>Located in the bustling city of Colombo, this branch is the perfect spot for urban dining with a contemporary twist. Relish a fusion of traditional and modern cuisines.</p>
+    </div>
+    <div class="gallery-item text-center">
+        <img src="images/gallery3.avif" alt="Galle Branch" class="img-fluid">
+        <h4>Galle Branch</h4>
+        <p>Our Galle branch offers a unique dining experience with its charming coastal ambiance. Enjoy a variety of dishes while taking in the picturesque ocean views.</p>
+    </div>
+    <div class="gallery-item text-center">
+        <img src="images/gallery4.jpg" alt="Negambo Branch" class="img-fluid">
+        <h4>Negambo Branch</h4>
+        <p>Experience the rich flavors of Jaffna at our branch, known for its vibrant and authentic dishes. A true reflection of the region's culinary heritage.</p>
+    </div>
+</div>
+
         </div>
     </section>
     

@@ -29,7 +29,7 @@
                         <td>${order.orderId}</td> <!-- Ensure case matches Order model -->
                         <td>${order.customerName}</td> <!-- Ensure case matches Order model -->
                         <td>${order.orderTime}</td> <!-- Ensure case matches Order model -->
-                        <td>${order.orderSummary}</td> <!-- Ensure case matches Order model -->
+                        <td>${order.6}</td> <!-- Ensure case matches Order model -->
                         <td>${order.customerAddress}</td> <!-- Ensure case matches Order model -->
                         <td>${order.totalPrice}</td> <!-- Ensure case matches Order model -->
                         <td>
