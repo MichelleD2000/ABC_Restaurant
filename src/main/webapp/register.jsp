@@ -6,6 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Register - ABC Restaurant</title>
     <link rel="stylesheet" href="./CSS/LRstyles.css">
+    <style>
+        .message {
+            padding: 10px;
+            margin-bottom: 15px;
+            border-radius: 5px;
+            color: #fff;
+        }
+
+        .message.success {
+            background-color: #4CAF50;
+        }
+
+        .message.error {
+            background-color: #f44336;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
@@ -39,9 +55,18 @@
             <button type="submit">Register</button>
             <p>Already have an account? <a href="login.jsp">Login here</a></p>
         </form>
-        <% if(request.getAttribute("message") != null) { %>
-            <p style="color: red;"><%= request.getAttribute("message") %></p>
-        <% } %>
+
+        <% 
+            // Display the registration message if present
+            String message = (String) request.getAttribute("message");
+            if (message != null) {
+        %>
+            <div class="message success">
+                <%= message %>
+            </div>
+        <% 
+            }
+        %>
     </div>
 </body>
 </html>

@@ -122,14 +122,17 @@
 
         /* Cart icon style */
         .cart-icon {
-            margin-left: 10px;
+            position: relative;
+            margin-left: 20px; /* Adjust spacing between icons */
+            color: #D0A24E; /* Gold color for cart icon */
             font-size: 24px;
-            color: #D0A24E; /* Gold color for the cart icon */
             cursor: pointer;
+            text-decoration: none;
         }
 
+        /* Optional: Show a hover effect for the cart icon */
         .cart-icon:hover {
-            color: #ffdf00; /* Lighter gold on hover */
+            color: #f2b233; /* Slightly lighter gold for hover effect */
         }
     </style>
 </head>
@@ -149,7 +152,6 @@
             <li><a href="Queries.jsp">Quarries</a></li>
             <li>
                 <a href="image">Gallery</a>
-                <a href="orderPlacingPage.jsp" class="cart-icon"><i class="fas fa-shopping-cart"></i></a> <!-- Cart icon with link -->
             </li>
         </ul>
 
@@ -160,6 +162,8 @@
                 <a href="login.jsp">Login</a>
                 <a href="register.jsp">Register</a>
             </div>
+            <a href="cart.jsp" class="auth-icon cart-icon"><i class="fas fa-shopping-cart"></i></a> <!-- Cart icon with link -->
+            
         </div>
     </nav>
 </body>

@@ -1,33 +1,35 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Cart List</title>
+    <meta charset="UTF-8">
+    <title>List Cart Items</title>
 </head>
 <body>
-<h2>Cart List</h2>
-<a href="CartController?action=new">Add New Cart Item</a>
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Product ID</th>
-        <th>Product Name</th>
-        <th>Quantity</th>
-        <th>Price</th>
-        <th>Actions</th>
-    </tr>
-    <c:forEach var="cart" items="${cartList}">
+    <h1>Your Cart</h1>
+    <table border="1">
         <tr>
-            <td>${cart.id}</td>
-            <td>${cart.productId}</td>
-            <td>${cart.productName}</td>
-            <td>${cart.quantity}</td>
-            <td>${cart.price}</td>
-            <td>
-                <a href="CartController?action=edit&id=${cart.id}">Edit</a> | 
-                <a href="CartController?action=delete&id=${cart.id}" onclick="return confirm('Are you sure?')">Delete</a>
-            </td>
+            <th>Product ID</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Action</th>
         </tr>
-    </c:forEach>
-</table>
+        <c:forEach var="item" items="${cartList}">
+            <tr>
+                <td>${item.productId}</td>
+                <td>${item.productName}</td>
+                <td>${item.quantity}</td>
+                <td>${item.price}</td>
+                <td>${item.quantity * item.price}</td>
+                <td>
+                    <a href="cart?action=edit&id=${item.cartItemId}">Edit</a>
+                    <a href="cart?action=delete&id=${item.cartItemId}&productId=${item.productId}">Delete</a>
+                </td>
+            </tr>
+        </c:forEach>
+    </table>
+    <a href="cart?action=new">Add New Item</a>
 </body>
 </html>

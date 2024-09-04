@@ -6,8 +6,7 @@ public class Admin {
     private String email;
     private String password;
 
-    // Constructors
-    public Admin() { }
+    public Admin() {}
 
     public Admin(int adminId, String name, String email, String password) {
         this.adminId = adminId;
@@ -16,7 +15,7 @@ public class Admin {
         this.password = password;
     }
 
-    // Getters and Setters
+    // Getters and setters
     public int getAdminId() {
         return adminId;
     }

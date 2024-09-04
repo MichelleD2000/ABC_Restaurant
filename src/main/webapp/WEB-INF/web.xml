@@ -69,11 +69,18 @@
   	<servlet-class>com.abc.controller.CartController</servlet-class>
   </servlet>
   <servlet>
-  	<servlet-name>CartItem</servlet-name>
-  	<display-name>CartItem</display-name>
+  	<servlet-name>StaffController</servlet-name>
+  	<display-name>StaffController</display-name>
   	<description></description>
-  	<servlet-class>com.abc.model.CartItem</servlet-class>
+  	<servlet-class>com.abc.controller.StaffController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>OrderController</servlet-name>
+  	<display-name>OrderController</display-name>
+  	<description></description>
+  	<servlet-class>com.abc.controller.OrderController</servlet-class>
+  </servlet>
+  
 
   <servlet-mapping>
   	<servlet-name>ProductController</servlet-name>
@@ -114,7 +121,15 @@
   	<url-pattern>/CartController</url-pattern>
   </servlet-mapping>
   <servlet-mapping>
-  	<servlet-name>CartItem</servlet-name>
-  	<url-pattern>/CartItem</url-pattern>
+  	<servlet-name>StaffController</servlet-name>
+  	<url-pattern>/StaffController</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>OrderController</servlet-name>
+  	<url-pattern>/OrderController</url-pattern>
+  </servlet-mapping>
+  
+  
+ 
+ 
 </web-app>

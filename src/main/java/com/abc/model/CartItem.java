@@ -1,33 +1,20 @@
 package com.abc.model;
 
 public class CartItem {
-    private int cartItemId;
-    private int cartId;
-    private int productId;
+    private Product product;
     private int quantity;
 
-    public int getCartItemId() {
-        return cartItemId;
+    public CartItem(Product product, int quantity) {
+        this.product = product;
+        this.quantity = quantity;
     }
 
-    public void setCartItemId(int cartItemId) {
-        this.cartItemId = cartItemId;
+    public Product getProduct() {
+        return product;
     }
 
-    public int getCartId() {
-        return cartId;
-    }
-
-    public void setCartId(int cartId) {
-        this.cartId = cartId;
-    }
-
-    public int getProductId() {
-        return productId;
-    }
-
-    public void setProductId(int productId) {
-        this.productId = productId;
+    public void setProduct(Product product) {
+        this.product = product;
     }
 
     public int getQuantity() {
@@ -36,5 +23,9 @@ public class CartItem {
 
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public double getTotalPrice() {
+        return product.getPrice() * quantity;  // No parsing needed
     }
 }

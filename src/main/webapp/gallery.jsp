@@ -7,54 +7,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gallery</title>
     <link rel="stylesheet" href="<c:url value='/css/style.css' />">
-    
     <style>
-     body {
+        body {
             font-family: 'Arial', sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #fff;
-            color: #333;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text color */
         }
 
         h1 {
             font-size: 48px;
             font-weight: bold;
-            color: #D0A24E;
+            color: #D4AF37; /* Gold color */
             margin-top: 70px;
             text-align: center;
-            font-family: 'Harry Potter', serif;
-        }
-
-        .gallery-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px;
-            text-align: center;
+            font-family: 'Arial', sans-serif;
         }
 
         .gallery-header {
             background: url('/path/to/your/background-image.jpg') no-repeat center center/cover;
             padding: 100px 0;
-            color: white;
+            color: #fff; /* White text color */
             text-align: center;
-        }
-
-        .gallery-header h1 {
-            margin: 0;
-            font-size: 48px;
-            font-family: 'Harry Potter', serif;
-            margin-top:20px;
+            background-color: #000; /* Black background for header */
         }
 
         .breadcrumb {
             margin: 20px 0;
             font-size: 16px;
-            color: #D0A24E;
+            color: #D4AF37; /* Gold color */
+            text-align: center;
         }
 
         .breadcrumb a {
-            color: #D0A24E;
+            color: #D4AF37; /* Gold color */
             text-decoration: none;
         }
 
@@ -70,7 +57,7 @@
 
         .gallery-categories a {
             margin: 0 15px;
-            color: #D0A24E;
+            color: #D4AF37; /* Gold color */
             text-decoration: none;
         }
 
@@ -84,40 +71,33 @@
             justify-content: center;
             gap: 30px;
             padding: 20px;
-            
         }
 
         .gallery-item {
-            background-color: #fff;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+            background-color: #222; /* Dark grey background */
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5); /* Darker shadow */
             padding: 15px;
             max-width: 300px;
             text-align: center;
             border-radius: 10px;
-            max-height:300px;
-           
         }
 
         .gallery-item img {
             width: 100%;
             border-radius: 10px;
+            border: 2px solid #D4AF37; /* Gold border */
         }
 
         .gallery-item h3 {
             margin-top: 15px;
-            color: #333;
+            color: #D4AF37; /* Gold color */
             font-size: 22px;
         }
 
         .gallery-item p {
             margin: 10px 0;
-            color: #666;
+            color: #ccc; /* Light grey color */
         }
-      
-        }
-        
-        
-        
     </style>
 </head>
 
@@ -131,15 +111,16 @@
             <a href="home.jsp">Home</a> &gt; Gallery
         </div>
     </div>
+
     <div class="gallery">
         <c:forEach var="image" items="${images}">
             <div class="gallery-item">
-                <img src="${pageContext.request.contextPath}/${image.imageUrl}" alt="${image.title}" width="300">
+                <img src="${pageContext.request.contextPath}/${image.imageUrl}" alt="${image.title}">
                 <h3>${image.title}</h3>
                 <p>${image.description}</p>
             </div>
         </c:forEach>
     </div>
-    
+
 </body>
 </html>

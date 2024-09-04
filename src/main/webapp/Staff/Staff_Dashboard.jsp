@@ -166,6 +166,9 @@
 </head>
 
 <body>
+
+   
+    
     <div id="wrapper">
         <!-- Sidebar -->
         <div id="sidebar-wrapper" class="bg-black text-white">
@@ -177,20 +180,14 @@
                 <a href="#" class="list-group-item list-group-item-action">
                     <i class="fas fa-calendar-alt"></i> Calendar
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">
+                <a href="http://localhost:8085/abc_restaurant_final/staffReservations?action=list" class="list-group-item list-group-item-action">
                     <i class="fas fa-box-open"></i> Manage Reservations
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">
+                <a href="http://localhost:8085/abc_restaurant_final/queries?action=list" class="list-group-item list-group-item-action">
                     <i class="fas fa-users"></i> Queries
                 </a>
                 <a href="#" class="list-group-item list-group-item-action">
                     <i class="fas fa-credit-card"></i> Manage Payments
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <i class="fas fa-cog"></i> Settings
-                </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <i class="fas fa-sign-out-alt"></i> Logout
                 </a>
             </div>
         </div>
@@ -242,13 +239,13 @@
                         <div class="card">
                             <div class="card-head">
                                 <h2>107,200</h2>
-                                <span class="fas fa-box-open fs-1 primary-text"></span>
+                                <span class="fas fa-users fs-1 primary-text"></span>
                             </div>
                             <div class="card-progress">
                                 <small>
-                                    <a href="http://localhost:8085/abc_restaurant_final/listQueries?action=list"
+                                    <a href="http://localhost:8085/abc_restaurant_final/queries?action=list"
                                         style="text-decoration: none; color: inherit;">
-                                       Quaries
+                                        Queries
                                     </a>
                                 </small>
                                 <div class="card-indicator">
@@ -261,50 +258,27 @@
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-head">
-                                <h2>107,200</h2>
-                                <span class="fas fa-box-open fs-1 primary-text"></span>
+                                <h2>3400</h2>
+                                <span class="fas fa-credit-card fs-1 primary-text"></span>
                             </div>
                             <div class="card-progress">
-                                <small>
-                                    <a href="http://localhost:8085/abc_restaurant_final/staffReservations?action=list"
-                                        style="text-decoration: none; color: inherit;">
-                                        Manage Payments
-                                    </a>
-                                </small>
+                                <small>Manage Payments</small>
                                 <div class="card-indicator">
-                                    <div class="indicator one" style="width: 60%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4">
-                        <div class="card">
-                            <div class="card-head">
-                                <h2>107,200</h2>
-                                <span class="fas fa-box-open fs-1 primary-text"></span>
-                            </div>
-                            <div class="card-progress">
-                                <small>
-                                    <a href="http://localhost:8085/abc_restaurant_final/booking?action=list"
-                                        style="text-decoration: none; color: inherit;">
-                                        Manage Reservations
-                                    </a>
-                                </small>
-                                <div class="card-indicator">
-                                    <div class="indicator one" style="width: 60%"></div>
+                                    <div class="indicator one" style="width: 80%"></div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
+
         </div>
         <!-- /#page-content-wrapper -->
     </div>
     <!-- /#wrapper -->
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>

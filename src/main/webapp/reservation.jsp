@@ -326,6 +326,21 @@
             color: #999;
         }
         
+         /* Cart icon specific styles */
+        .cart-icon {
+            position: relative;
+            margin-left: 20px; /* Adjust spacing between icons */
+            color: #D0A24E; /* Gold color for cart icon */
+            font-size: 24px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Optional: Show a hover effect for the cart icon */
+        .cart-icon:hover {
+            color: #f2b233; /* Slightly lighter gold for hover effect */
+        }
+        
     </style>
 </head>
 <body>
@@ -348,6 +363,9 @@
                 <a href="login.jsp">Login</a>
                 <a href="register.jsp">Register</a>
             </div>
+            
+                        <a href="cart.jsp" class="auth-icon cart-icon"><i class="fas fa-shopping-cart"></i></a> <!-- Font Awesome cart icon -->
+            
         </div>
     </nav>
     <div class="reservation-header">

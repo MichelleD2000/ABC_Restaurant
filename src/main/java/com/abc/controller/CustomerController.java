@@ -136,7 +136,7 @@ public class CustomerController extends HttpServlet {
 
         customerService.addCustomer(customer);
         request.setAttribute("message", "Registration successful! Please log in.");
-        request.getRequestDispatcher("login.jsp").forward(request, response);
+        request.getRequestDispatcher("register.jsp").forward(request, response);
     }
 
 
@@ -148,6 +148,8 @@ public class CustomerController extends HttpServlet {
         if (customer != null) {
             HttpSession session = request.getSession();
             session.setAttribute("customer", customer);
+            session.setAttribute("loginSuccessMessage", "Login successful! Welcome back, " + customer.getName() + ".");
+
             response.sendRedirect("index.jsp");  // Redirect to customer list or another page
         } else {
             request.setAttribute("errorMessage", "Invalid email or password");
@@ -158,6 +160,6 @@ public class CustomerController extends HttpServlet {
     private void logoutCustomer(HttpServletRequest request, HttpServletResponse response) throws IOException {
         HttpSession session = request.getSession();
         session.invalidate();
-        response.sendRedirect("login.jsp");
+        response.sendRedirect("index.jsp");
     }
 }

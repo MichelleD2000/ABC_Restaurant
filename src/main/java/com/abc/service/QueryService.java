@@ -7,21 +7,37 @@ import java.sql.SQLException;
 import java.util.List;
 
 public class QueryService {
+    private static QueryService instance;
     private QueryDAO queryDAO;
 
-    public QueryService() {
-        queryDAO = new QueryDAO();
+    private QueryService() throws SQLException {
+        queryDAO = QueryDAO.getInstance();
     }
 
-    public void addQuery(Query query) throws SQLException {
+    public static QueryService getInstance() throws SQLException {
+        if (instance == null) {
+            instance = new QueryService();
+        }
+        return instance;
+    }
+
+    public void createQuery(Query query) throws SQLException {
         queryDAO.createQuery(query);
     }
 
-    public List<Query> getQueries() throws SQLException {
+    public List<Query> getAllQueries() throws SQLException {
         return queryDAO.getAllQueries();
     }
 
-    public void removeQuery(int id) throws SQLException {
+    public Query getQueryById(int id) throws SQLException {
+        return queryDAO.getQueryById(id);
+    }
+
+    public void updateQuery(Query query) throws SQLException {
+        queryDAO.updateQuery(query);
+    }
+
+    public void deleteQuery(int id) throws SQLException {
         queryDAO.deleteQuery(id);
     }
 }

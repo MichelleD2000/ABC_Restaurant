@@ -75,6 +75,9 @@
             transform: translateY(-50%);
             color: #D0A24E; /* Gold color for search icon */
             font-size: 20px;
+            border: none;
+            background: none;
+            cursor: pointer;
         }
 
         /* Navigation links */
@@ -139,6 +142,34 @@
         .dropdown:hover {
             display: block;
         }
+
+        /* Cart icon specific styles */
+        .cart-icon {
+            position: relative;
+            margin-left: 20px; /* Adjust spacing between icons */
+            color: #D0A24E; /* Gold color for cart icon */
+            font-size: 24px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        /* Optional: Show a hover effect for the cart icon */
+        .cart-icon:hover {
+            color: #f2b233; /* Slightly lighter gold for hover effect */
+        }
+
+        /* Cart count badge */
+        .cart-count {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            background-color: gold;
+            color: black;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 12px;
+            font-weight: bold;
+        }
     </style>
 </head>
 <body>
@@ -150,10 +181,12 @@
         </div>
 
         <!-- Search Bar -->
-        <div class="search-bar">
-            <input type="text" placeholder="Search...">
-            <span class="search-icon"><i class="fas fa-search"></i></span> <!-- Font Awesome search icon -->
-        </div>
+        <form action="searchRedirect.jsp" method="get">
+            <div class="search-bar">
+                <input type="text" name="query" placeholder="Search...">
+                <button type="submit" class="search-icon"><i class="fas fa-search"></i></button>
+            </div>
+        </form>
 
         <!-- Navigation Links -->
         <ul class="nav-links">
@@ -172,7 +205,28 @@
                 <a href="login.jsp">Login</a>
                 <a href="register.jsp">Register</a>
             </div>
+            <!-- Cart Icon -->
+            <a href="Cart.jsp" class="auth-icon cart-icon">
+                <i class="fas fa-shopping-cart"></i>
+                <span class="cart-count">0</span> <!-- Cart count badge -->
+            </a>
         </div>
     </nav>
+
+    <!-- JavaScript to update cart count -->
+    <script>
+        // Example: Update this function to retrieve the actual cart items from your storage or session
+        function getCartCount() {
+            // Retrieve cart items from localStorage or session
+            let cart = JSON.parse(localStorage.getItem('cart')) || [];
+            return cart.length;
+        }
+
+        // Update the cart count on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            const cartCountElement = document.querySelector('.cart-count');
+            cartCountElement.textContent = getCartCount();
+        });
+    </script>
 </body>
 </html>
