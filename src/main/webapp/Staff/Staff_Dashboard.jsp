@@ -186,9 +186,7 @@
                 <a href="http://localhost:8085/abc_restaurant_final/queries?action=list" class="list-group-item list-group-item-action">
                     <i class="fas fa-users"></i> Queries
                 </a>
-                <a href="#" class="list-group-item list-group-item-action">
-                    <i class="fas fa-credit-card"></i> Manage Payments
-                </a>
+               
             </div>
         </div>
         <!-- /#sidebar-wrapper -->
@@ -223,9 +221,9 @@
                             </div>
                             <div class="card-progress">
                                 <small>
-                                    <a href="http://localhost:8085/abc_restaurant_final/staffReservations?action=list"
+                                    <a href="http://localhost:8085/abc_restaurant_final/reservation?action=list"
                                         style="text-decoration: none; color: inherit;">
-                                        Manage Reservations
+                                        Table Bookings
                                     </a>
                                 </small>
                                 <div class="card-indicator">
@@ -254,21 +252,29 @@
                             </div>
                         </div>
                     </div>
-
                     <div class="col-md-4">
                         <div class="card">
                             <div class="card-head">
-                                <h2>3400</h2>
-                                <span class="fas fa-credit-card fs-1 primary-text"></span>
+                                <h2>107,200</h2>
+                                <span class="fas fa-users fs-1 primary-text"></span>
                             </div>
-                            <div class="card-progress">
-                                <small>Manage Payments</small>
+                    <div class="card-progress">
+                                <small>
+                                    <a href="http://localhost:8085/abc_restaurant_final/booking?action=list"
+                                        style="text-decoration: none; color: inherit;">
+                                        Event Bookings
+                                    </a>
+                                </small>
                                 <div class="card-indicator">
-                                    <div class="indicator one" style="width: 80%"></div>
+                                    <div class="indicator one" style="width: 60%"></div>
                                 </div>
                             </div>
+                            
+                               </div>
                         </div>
                     </div>
+
+                    
                 </div>
             </div>
 
