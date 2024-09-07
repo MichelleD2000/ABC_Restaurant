@@ -1,12 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" isELIgnored="false"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %> <!-- Added for date formatting -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservation List</title>
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         body {
             background-color: #000; /* Black background for the page */
@@ -28,11 +29,6 @@
         }
         .table tbody tr:nth-child(odd) {
             background-color: #444; /* Slightly lighter grey for odd rows */
-        }
-        .product-image {
-            width: 100px; /* Adjust as needed */
-            height: auto; /* Maintain aspect ratio */
-            border: 2px solid #D4AF37; /* Gold border around images */
         }
         .btn {
             margin: 2px; /* Add some spacing between buttons */
@@ -61,34 +57,41 @@
     </style>
 </head>
 <body>
-    <h2>Reservations</h2>
+    <div class="container">
+        <h2 class="text-center">Reservations</h2>
+        
+        <table class="table table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Date</th>
+                    <th>Time</th>
+                    <th>Guests</th>
+                    <th>Phone</th>
+                    <th>Email</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <c:forEach var="reservation" items="${reservations}">
+                    <tr>
+                        <td>${reservation.id}</td>
+                        <td>${reservation.name}</td>
+                        <td><fmt:formatDate value="${reservation.date}" pattern="yyyy-MM-dd" /></td> <!-- Date formatting -->
+                        <td>${reservation.time}</td>
+                        <td>${reservation.guests}</td>
+                        <td>${reservation.phone}</td>
+                        <td>${reservation.email}</td>
+                        <td>
+                            <a href="reservation?action=delete&id=${reservation.id}" class="btn btn-danger" onclick="return confirm('Are you sure?')">Delete</a>
+                        </td>
+                    </tr>
+                </c:forEach>
+            </tbody>
+        </table>
+    </div>
 
-    <table border="1">
-        <tr>
-            <th>ID</th>
-            <th>Name</th>
-            <th>Date</th>
-            <th>Time</th>
-            <th>Guests</th>
-            <th>Phone</th>
-            <th>Email</th>
-            <th>Actions</th>
-        </tr>
-        <c:forEach var="reservation" items="${reservations}">
-            <tr>
-                <td>${reservation.id}</td>
-                <td>${reservation.name}</td>
-                <td><fmt:formatDate value="${reservation.date}" pattern="yyyy-MM-dd" /></td>
-                <td>${reservation.time}</td>
-                <td>${reservation.guests}</td>
-                <td>${reservation.phone}</td>
-                <td>${reservation.email}</td>
-                <td>
-                    
-                    <a href="reservation?action=delete&id=${reservation.id}" onclick="return confirm('Are you sure?')">Delete</a>
-                </td>
-            </tr>
-        </c:forEach>
-    </table>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+Fsp3pXqIKPl9zz6csdB3znmCTw5p" crossorigin="anonymous"></script>
 </body>
 </html>
