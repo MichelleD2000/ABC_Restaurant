@@ -80,6 +80,19 @@
   	<description></description>
   	<servlet-class>com.abc.controller.OrderController</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>ReservationPdfDownloadController</servlet-name>
+  	<display-name>ReservationPdfDownloadController</display-name>
+  	<description></description>
+  	<servlet-class>com.abc.controller.ReservationPdfDownloadController</servlet-class>
+  </servlet>
+  <servlet>
+  	<servlet-name>SalesReportController</servlet-name>
+  	<display-name>SalesReportController</display-name>
+  	<description></description>
+  	<servlet-class>com.abc.controller.SalesReportController</servlet-class>
+  </servlet>
+ 
   
 
   <servlet-mapping>
@@ -128,6 +141,15 @@
   	<servlet-name>OrderController</servlet-name>
   	<url-pattern>/OrderController</url-pattern>
   </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>ReservationPdfDownloadController</servlet-name>
+  	<url-pattern>/ReservationPdfDownloadController</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>SalesReportController</servlet-name>
+  	<url-pattern>/SalesReportController</url-pattern>
+  </servlet-mapping>
+  
   
   
  

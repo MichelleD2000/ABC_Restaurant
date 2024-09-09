@@ -106,10 +106,13 @@ public class QueryController extends HttpServlet {
 
         queryService.createQuery(newQuery);
 
-        // Forward back to the Queries.jsp with a success message
-        request.setAttribute("successMessage", "Your query has been successfully submitted!");
-        request.getRequestDispatcher("Queries.jsp").forward(request, response);
+        // Set success message in session
+        request.getSession().setAttribute("successMessage", "Your query has been successfully submitted!");
+
+        // Redirect to the Queries.jsp page to avoid resubmission on page refresh
+        response.sendRedirect("Queries.jsp");
     }
+
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {

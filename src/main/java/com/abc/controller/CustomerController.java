@@ -2,7 +2,10 @@ package com.abc.controller;
 
 import com.abc.model.Customer;
 import com.abc.service.CustomerService;
+import com.abc.util.EmailUtil;
 
+
+import javax.mail.MessagingException;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -135,6 +138,10 @@ public class CustomerController extends HttpServlet {
         customer.setRestaurantOutlet(restaurantOutlet);
 
         customerService.addCustomer(customer);
+
+        // Send a welcome email after successful registration
+        EmailUtil.sendWelcomeEmail(customer.getEmail(), customer.getName());
+
         request.setAttribute("message", "Registration successful! Please log in.");
         request.getRequestDispatcher("register.jsp").forward(request, response);
     }

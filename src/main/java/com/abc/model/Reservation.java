@@ -10,6 +10,7 @@ public class Reservation {
     private String name;
     private String phone;
     private String email;
+    private String status; // New field for reservation status
 
     public Reservation(Date date, String time, int guests, String name, String phone, String email) {
         this.date = date;
@@ -18,6 +19,7 @@ public class Reservation {
         this.name = name;
         this.phone = phone;
         this.email = email;
+        this.status = "pending"; // Default status
     }
 
     // Getters and Setters
@@ -41,5 +43,9 @@ public class Reservation {
 
     public String getEmail() { return email; }
     public void setEmail(String email) { this.email = email; }
-}
 
+    public String getStatus() { return status; }
+    public void setStatus(String status) { this.status = status; }
+    
+    
+}

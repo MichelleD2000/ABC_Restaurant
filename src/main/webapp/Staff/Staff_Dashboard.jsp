@@ -180,7 +180,7 @@
                 <a href="#" class="list-group-item list-group-item-action">
                     <i class="fas fa-calendar-alt"></i> Calendar
                 </a>
-                <a href="http://localhost:8085/abc_restaurant_final/staffReservations?action=list" class="list-group-item list-group-item-action">
+                <a href="http://localhost:8085/abc_restaurant_final/reservations?action=list" class="list-group-item list-group-item-action">
                     <i class="fas fa-box-open"></i> Manage Reservations
                 </a>
                 <a href="http://localhost:8085/abc_restaurant_final/queries?action=list" class="list-group-item list-group-item-action">

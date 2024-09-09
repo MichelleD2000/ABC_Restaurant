@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 import com.abc.model.Order;
+import com.abc.model.SalesData;
 
 public class OrderDAO {
 
@@ -45,6 +46,37 @@ public class OrderDAO {
         } catch (SQLException e) {
             e.printStackTrace();
         }
+    }
+    
+    public List<SalesData> getSalesData() {
+        List<SalesData> salesDataList = new ArrayList<>();
+        String query = "SELECT DATE(order_time) AS order_date, " +
+                       "COUNT(*) AS total_orders, " +
+                       "(SELECT order_summary FROM Orders " +
+                       "GROUP BY order_summary " +
+                       "ORDER BY COUNT(order_summary) DESC LIMIT 1) AS best_selling_item, " +
+                       "SUM(total_price) AS total_daily_income " +
+                       "FROM Orders " +
+                       "GROUP BY DATE(order_time)";
+        
+        try (Connection connection = DBConnectionFactory.getConnection();
+             PreparedStatement statement = connection.prepareStatement(query);
+             ResultSet resultSet = statement.executeQuery()) {
+            
+            while (resultSet.next()) {
+                SalesData data = new SalesData(
+                    resultSet.getString("order_date"),
+                    resultSet.getInt("total_orders"),
+                    resultSet.getString("best_selling_item"),
+                    resultSet.getDouble("total_daily_income")
+                );
+                salesDataList.add(data);
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        
+        return salesDataList;
     }
 
     // Method to get the total number of orders

@@ -8,7 +8,13 @@
     <title>Admin Dashboard</title>
     <link rel="stylesheet" href="./CSS/styles.css">
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
+
+
+
+
 </head>
+
+
 <body>
    <input type="checkbox" id="menu-toggle">
     <div class="sidebar">
@@ -50,6 +56,8 @@
                             <small><a href="http://localhost:8085/abc_restaurant_final/customer?action=list" style="text-decoration:none;color:inherit;">Manage Customers</a></small>
                             <div class="card-indicator">
                                 <div class="indicator two" style="width: 80%"></div>
+                                
+                                
                             </div>
                         </div>
                     </div>
@@ -100,18 +108,9 @@
 
 
                     <!-- Card 6 -->
-                    <div class="card">
-                        <div class="card-head">
-                            <h2>50,000</h2>
-                            <span class="las la-wallet"></span>
-                        </div>
-                        <div class="card-progress">
-                            <small>Reports</small>
-                            <div class="card-indicator">
-                                <div class="indicator six" style="width: 70%"></div>
-                            </div>
-                        </div>
-                    </div>
+                    <!-- Updated Card 6: Reports -->
+
+
                     
                     <div class="card">
                         <div class="card-head">
@@ -126,6 +125,8 @@
                         </div>
                     </div>
                     
+                    
+                    
 
                 </div>
 
@@ -135,8 +136,7 @@
                 </div>
             
             </div>
-        </main>
-        
-    </div>
+            
+           
 </body>
 </html>

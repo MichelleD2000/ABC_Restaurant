@@ -4,6 +4,7 @@ import java.sql.SQLException;
 import java.util.List;
 import com.abc.dao.OrderDAO;
 import com.abc.model.Order;
+import com.abc.model.SalesData;
 
 public class OrderService {
     private static OrderService instance;
@@ -34,5 +35,9 @@ public class OrderService {
     // Method to get all orders
     public List<Order> getAllOrders() {
         return orderDAO.getAllOrders();
+    }
+    
+    public List<SalesData> getSalesData() {
+        return orderDAO.getSalesData();
     }
 }

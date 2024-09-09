@@ -2,6 +2,8 @@ package com.abc.controller;
 
 import com.abc.model.Admin;
 import com.abc.service.AdminService;
+import com.abc.service.ReservationService;
+
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -17,10 +19,12 @@ import java.util.List;
 public class AdminController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private AdminService adminService;
+    private ReservationService reservationService;
 
     @Override
     public void init() throws ServletException {
         adminService = AdminService.getInstance();
+        reservationService = ReservationService.getInstance();
     }
 
     @Override
@@ -143,4 +147,6 @@ public class AdminController extends HttpServlet {
         session.invalidate();
         response.sendRedirect("Admin_Area/adminLogin.jsp");
     }
+
+   
 }

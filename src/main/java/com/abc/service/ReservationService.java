@@ -10,16 +10,12 @@ public class ReservationService {
     private ReservationDAO reservationDAO;
 
     private ReservationService() {
-        this.reservationDAO = new ReservationDAO();
+        reservationDAO = new ReservationDAO();
     }
 
     public static ReservationService getInstance() {
         if (instance == null) {
-            synchronized (ReservationService.class) {
-                if (instance == null) {
-                    instance = new ReservationService();
-                }
-            }
+            instance = new ReservationService();
         }
         return instance;
     }
@@ -35,8 +31,21 @@ public class ReservationService {
     public int getNoOfRecords() {
         return reservationDAO.getNoOfRecords();
     }
+
+    public boolean updateReservationStatus(int id, String status) {
+        return reservationDAO.updateReservationStatus(id, status);
+    }
+
+    public boolean deleteReservation(int id) {
+        return reservationDAO.deleteReservation(id);
+    }
     
     public Reservation getReservationById(int id) {
+        // Retrieve a specific reservation by ID
         return reservationDAO.getReservationById(id);
+    }
+    
+    public List<Reservation> getReservationsByStatus(String status) {
+        return reservationDAO.getReservationsByStatus(status);
     }
 }
