@@ -1,5 +1,7 @@
 package com.abc.model;
 
+import java.util.Objects;
+
 public class Staff {
     private int id;
     private String name;
@@ -8,10 +10,21 @@ public class Staff {
     private String phoneNumber;
     private String password;
 
+    // Default constructor
     public Staff() {}
 
+    // Constructor with all fields
     public Staff(int id, String name, String email, String address, String phoneNumber, String password) {
         this.id = id;
+        this.name = name;
+        this.email = email;
+        this.address = address;
+        this.phoneNumber = phoneNumber;
+        this.password = password;
+    }
+
+    // Constructor without ID (useful for creation before ID is assigned)
+    public Staff(String name, String email, String address, String phoneNumber, String password) {
         this.name = name;
         this.email = email;
         this.address = address;
