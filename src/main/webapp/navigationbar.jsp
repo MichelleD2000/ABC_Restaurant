@@ -178,6 +178,7 @@
         <div class="logo">
             <img src="./images/logo.png" alt="Restaurant Logo">
             <h1>ABC Restaurant</h1>
+            
         </div>
 
         <!-- Search Bar -->

@@ -68,7 +68,7 @@
                 <th>Customer Name</th>
                 <th>Customer Email</th>
                 <th>Query</th>
-                <th>Response</th>
+           
                 <th>Status</th>
                 <th class="actions">Actions</th>
             </tr>
@@ -80,7 +80,7 @@
                     <td>${query.customerName}</td>
                     <td>${query.customerEmail}</td>
                     <td>${query.queryText}</td>
-                    <td>${query.responseText}</td>
+                    
                     <td>${query.status}</td>
                     <td class="actions">
                         <a href="queries?action=edit&id=${query.id}">Edit</a> |

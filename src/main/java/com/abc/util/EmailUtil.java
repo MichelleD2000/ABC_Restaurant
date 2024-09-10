@@ -10,8 +10,8 @@ public class EmailUtil {
     public static void sendEmail(String toEmail, String subject, String body) {
         // Outlook SMTP server configuration
         String host = "smtp-mail.outlook.com";  // Outlook SMTP host
-        final String fromEmail = "abc_restaurant@outlook.com"; // Outlook email
-        final String password = "abcrest2000"; // Your email password
+        final String fromEmail = "abcrestaurantsl@outlook.com"; // Outlook email
+        final String password = "Abc@9711@#$"; // Your email password
 
         Properties props = new Properties();
         props.put("mail.smtp.host", host); // SMTP Host

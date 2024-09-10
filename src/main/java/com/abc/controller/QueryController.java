@@ -17,13 +17,15 @@ import java.util.Properties;
 
 @WebServlet("/queries")
 public class QueryController extends HttpServlet {
+
+    private static final long serialVersionUID = 1L;
     private QueryService queryService;
 
     public void init() {
         try {
             queryService = QueryService.getInstance();
         } catch (SQLException e) {
-            e.printStackTrace();
+            log("Error initializing QueryService: " + e.getMessage(), e);
         }
     }
 
@@ -32,53 +34,42 @@ public class QueryController extends HttpServlet {
         String action = request.getParameter("action");
 
         try {
-            switch (action) {
-                case "new":
-                    showNewForm(request, response);
-                    break;
-                case "insert":
-                    insertQuery(request, response);
-                    break;
-                case "delete":
-                    deleteQuery(request, response);
-                    break;
-                case "edit":
-                    showEditForm(request, response);
-                    break;
-                case "update":
-                    updateQuery(request, response);
-                    break;
-                case "sendEmail":
-                    sendEmailResponse(request, response);
-                    break;
-                default:
-                    listQueries(request, response);
-                    break;
+            if (action != null) {
+                switch (action) {
+                    case "new":
+                        showNewForm(request, response);
+                        break;
+                    case "insert":
+                        insertQuery(request, response);
+                        break;
+                    case "delete":
+                        deleteQuery(request, response);
+                        break;
+                    case "edit":
+                        showEditForm(request, response);
+                        break;
+                    case "update":
+                        updateQuery(request, response);
+                        break;
+                    case "sendEmail":
+                        sendEmailResponse(request, response);
+                        break;
+                    default:
+                        listQueries(request, response);
+                        break;
+                }
+            } else {
+                listQueries(request, response);
             }
         } catch (SQLException ex) {
+            log("SQL Exception in doGet: " + ex.getMessage(), ex);
             throw new ServletException(ex);
         }
     }
-    
+
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String action = request.getParameter("action");
-
-        try {
-            switch (action) {
-                case "insert":
-                    insertQuery(request, response);
-                    break;
-                case "sendEmail":
-                    sendEmailResponse(request, response);
-                    break;
-                default:
-                    listQueries(request, response);
-                    break;
-            }
-        } catch (SQLException ex) {
-            throw new ServletException(ex);
-        }
+        doGet(request, response); // Forward all POST actions to doGet for simplicity
     }
 
     private void listQueries(HttpServletRequest request, HttpServletResponse response)
@@ -98,6 +89,10 @@ public class QueryController extends HttpServlet {
         String customerName = request.getParameter("customerName");
         String customerEmail = request.getParameter("customerEmail");
         String queryText = request.getParameter("queryText");
+        
+        System.out.println("Customer Name: " + customerName);
+        System.out.println("Customer Email: " + customerEmail);
+        System.out.println("Query Text: " + queryText);
 
         Query newQuery = new Query();
         newQuery.setCustomerName(customerName);
@@ -109,102 +104,87 @@ public class QueryController extends HttpServlet {
         // Set success message in session
         request.getSession().setAttribute("successMessage", "Your query has been successfully submitted!");
 
-        // Redirect to the Queries.jsp page to avoid resubmission on page refresh
-        response.sendRedirect("Queries.jsp");
+        // Redirect to avoid form resubmission
+        response.sendRedirect(request.getContextPath() + "/queries");
     }
-
 
     private void showEditForm(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         Query existingQuery = queryService.getQueryById(id);
         request.setAttribute("query", existingQuery);
-        request.getRequestDispatcher("query-form.jsp").forward(request, response);
+        request.getRequestDispatcher("WEB-INF/view/query-form.jsp").forward(request, response);
     }
 
     private void updateQuery(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-        String responseText = request.getParameter("responseText");
         String status = request.getParameter("status");
 
         Query query = new Query();
         query.setId(id);
-        query.setResponseText(responseText);
         query.setStatus(status);
 
         queryService.updateQuery(query);
-        response.sendRedirect("queries?action=list");
+        response.sendRedirect(request.getContextPath() + "/queries?action=list");
     }
+
 
     private void deleteQuery(HttpServletRequest request, HttpServletResponse response)
             throws SQLException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
-
         queryService.deleteQuery(id);
-        response.sendRedirect("queries?action=list");
+        response.sendRedirect(request.getContextPath() + "/queries?action=list");
     }
 
-    // New method to send email response
     private void sendEmailResponse(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException, SQLException {
         int id = Integer.parseInt(request.getParameter("id"));
         String email = request.getParameter("email");
-        String responseText = request.getParameter("responseText");
 
         // Send email to customer
-        sendEmail(responseText, email);
+        sendEmail("Thank you for reaching out. We have reviewed your query.", email);
 
-        // Update query with response and status
+        // Update query status
         Query query = new Query();
         query.setId(id);
-        query.setResponseText(responseText);
         query.setStatus("Responded");
 
         queryService.updateQuery(query);
 
-        // Redirect to the queries list
-        response.sendRedirect("queries?action=list");
+        response.sendRedirect(request.getContextPath() + "/queries?action=list");
     }
 
     // Helper method to send email
     private void sendEmail(String message, String recipient) {
-        String sender = "your-email@example.com"; // replace with your email
-        String host = "smtp.example.com"; // replace with your SMTP server
+        String sender = "your-email@example.com"; // Replace with your email
+        String host = "smtp.example.com"; // Replace with your SMTP server
 
         // Set properties for the mail session
-        Properties properties = System.getProperties();
+        Properties properties = new Properties();
         properties.setProperty("mail.smtp.host", host);
-        properties.setProperty("mail.smtp.port", "587"); // Use the appropriate port for your SMTP server
+        properties.setProperty("mail.smtp.port", "587"); // Use appropriate port
         properties.setProperty("mail.smtp.auth", "true");
         properties.setProperty("mail.smtp.starttls.enable", "true");
 
-        // Get the default session object
+        // Get the session object
         Session session = Session.getInstance(properties, new Authenticator() {
             protected PasswordAuthentication getPasswordAuthentication() {
-                return new PasswordAuthentication("your-email@example.com", "your-password"); // replace with your email and password
+                return new PasswordAuthentication("your-email@example.com", "your-password"); // Use proper credentials
             }
         });
 
         try {
-            // Create a default MimeMessage object
             MimeMessage mimeMessage = new MimeMessage(session);
-
-            // Set the sender's address
             mimeMessage.setFrom(new InternetAddress(sender));
-
-            // Set the recipient's address
             mimeMessage.addRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-
-            // Set the subject and message text
             mimeMessage.setSubject("Response to Your Query");
             mimeMessage.setText(message);
 
-            // Send the message
             Transport.send(mimeMessage);
-            System.out.println("Email sent successfully...");
+            log("Email sent successfully to " + recipient);
         } catch (MessagingException e) {
-            e.printStackTrace();
+            log("Error sending email: " + e.getMessage(), e);
         }
     }
 }

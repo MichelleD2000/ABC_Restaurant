@@ -106,7 +106,6 @@ public class ReservationController extends HttpServlet {
         }
     }
 
-
     private void deleteReservation(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         int id = Integer.parseInt(request.getParameter("id"));
         System.out.println("Deleting reservation with ID: " + id);
@@ -154,6 +153,7 @@ public class ReservationController extends HttpServlet {
         }
 
         List<Reservation> reservations = reservationService.getReservations((page - 1) * recordsPerPage, recordsPerPage);
+        System.out.println("Fetched Reservations: " + reservations);  // Debug log
         int noOfRecords = reservationService.getNoOfRecords();
         int noOfPages = (int) Math.ceil(noOfRecords * 1.0 / recordsPerPage);
 

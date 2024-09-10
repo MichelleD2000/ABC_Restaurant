@@ -173,21 +173,21 @@
 
         <!-- Success message block -->
         
-        <form action="queries?action=insert" method="post" id="queryForm">
-    <div class="form-group">
-        <label for="customerName">Name:</label>
-        <input type="text" class="form-control" id="customerName" name="customerName" required>
-    </div>
-    <div class="form-group">
-        <label for="customerEmail">Email:</label>
-        <input type="email" class="form-control" id="customerEmail" name="customerEmail" required>
-    </div>
-    <div class="form-group">
-        <label for="queryText">Your Query:</label>
-        <textarea class="form-control" id="queryText" name="queryText" rows="5" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit Query</button>
-</form>
+        <form action="queries?action=insert" method="post">
+            <div class="form-group">
+                <label for="customerName">Name:</label>
+                <input type="text" class="form-control" id="customerName" name="customerName" required>
+            </div>
+            <div class="form-group">
+                <label for="customerEmail">Email:</label>
+                <input type="email" class="form-control" id="customerEmail" name="customerEmail" required>
+            </div>
+            <div class="form-group">
+                <label for="queryText">Your Query:</label>
+                <textarea class="form-control" id="queryText" name="queryText" rows="5" required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Submit Query</button>
+        </form>
 
     </div>
 

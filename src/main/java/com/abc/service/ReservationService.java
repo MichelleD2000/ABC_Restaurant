@@ -39,7 +39,7 @@ public class ReservationService {
     public boolean deleteReservation(int id) {
         return reservationDAO.deleteReservation(id);
     }
-    
+
     public Reservation getReservationById(int id) {
         // Retrieve a specific reservation by ID
         return reservationDAO.getReservationById(id);
@@ -48,4 +48,6 @@ public class ReservationService {
     public List<Reservation> getReservationsByStatus(String status) {
         return reservationDAO.getReservationsByStatus(status);
     }
+    
+   
 }

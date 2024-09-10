@@ -7,7 +7,6 @@ public class Query {
     private String customerName;
     private String customerEmail;
     private String queryText;
-    private String responseText;
     private String status;
     private Timestamp createdAt;
 
@@ -23,9 +22,6 @@ public class Query {
 
     public String getQueryText() { return queryText; }
     public void setQueryText(String queryText) { this.queryText = queryText; }
-
-    public String getResponseText() { return responseText; }
-    public void setResponseText(String responseText) { this.responseText = responseText; }
 
     public String getStatus() { return status; }
     public void setStatus(String status) { this.status = status; }

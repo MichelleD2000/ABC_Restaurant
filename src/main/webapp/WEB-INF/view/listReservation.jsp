@@ -17,9 +17,7 @@
         cursor: pointer;            /* Pointer/hand icon */
         border-radius: 12px;        /* Rounded corners */
     }
-
-    
-</style>
+    </style>
 </head>
 <body>
     <h2>Reservations</h2>
@@ -57,6 +55,11 @@
             </tr>
         </c:forEach>
     </table>
+
+    <c:if test="${empty reservations}">
+        <p>No reservations found.</p>
+    </c:if>
+
     <div>
         <c:forEach begin="1" end="${noOfPages}" var="page">
             <a href="reservation?action=list&page=${page}">${page}</a>

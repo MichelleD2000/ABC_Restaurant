@@ -59,21 +59,18 @@
         </c:if>
         <div class="form-group">
             <label for="customerName">Customer Name:</label>
-            <input type="text" name="customerName" id="customerName" class="form-control" value="${query.customerName}">
+            <input type="text" name="customerName" id="customerName" id="customerName" class="form-control" value="${query.customerName}">
         </div>
         <div class="form-group">
             <label for="customerEmail">Customer Email:</label>
-            <input type="email" name="customerEmail" id="customerEmail" class="form-control" value="${query.customerEmail}">
+            <input type="email" name="customerEmail" id="customerEmail" id="customerEmail" class="form-control" value="${query.customerEmail}">
         </div>
         <div class="form-group">
             <label for="queryText">Query:</label>
-            <textarea name="queryText" id="queryText" class="form-control">${query.queryText}</textarea>
+            <textarea name="queryText" id="queryText" id="queryText" class="form-control">${query.queryText}</textarea>
         </div>
         <c:if test="${query.id != null}">
-            <div class="form-group">
-                <label for="responseText">Response:</label>
-                <textarea name="responseText" id="responseText" class="form-control">${query.responseText}</textarea>
-            </div>
+            
             <div class="form-group">
                 <label for="status">Status:</label>
                 <select name="status" id="status" class="form-select">

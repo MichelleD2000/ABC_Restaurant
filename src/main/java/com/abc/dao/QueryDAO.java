@@ -28,16 +28,24 @@ public class QueryDAO {
 
     public void createQuery(Query query) throws SQLException {
         String sql = "INSERT INTO queries (customer_name, customer_email, query_text) VALUES (?, ?, ?)";
-        PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, query.getCustomerName());
-        statement.setString(2, query.getCustomerEmail());
-        statement.setString(3, query.getQueryText());
-        statement.executeUpdate();
+        try (PreparedStatement statement = connection.prepareStatement(sql)) {
+            statement.setString(1, query.getCustomerName());
+            statement.setString(2, query.getCustomerEmail());
+            statement.setString(3, query.getQueryText());
+            int rowsAffected = statement.executeUpdate();
+            if (rowsAffected > 0) {
+                System.out.println("Query successfully inserted.");
+            } else {
+                System.out.println("Query insert failed.");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public List<Query> getAllQueries() throws SQLException {
         List<Query> queries = new ArrayList<>();
-        String sql = "SELECT * FROM queries";
+        String sql = "SELECT id, customer_name, customer_email, query_text, status, created_at FROM queries";
         Statement statement = connection.createStatement();
         ResultSet resultSet = statement.executeQuery(sql);
 
@@ -47,7 +55,6 @@ public class QueryDAO {
             query.setCustomerName(resultSet.getString("customer_name"));
             query.setCustomerEmail(resultSet.getString("customer_email"));
             query.setQueryText(resultSet.getString("query_text"));
-            query.setResponseText(resultSet.getString("response_text"));
             query.setStatus(resultSet.getString("status"));
             query.setCreatedAt(resultSet.getTimestamp("created_at"));
             queries.add(query);
@@ -55,6 +62,7 @@ public class QueryDAO {
 
         return queries;
     }
+
 
     public Query getQueryById(int id) throws SQLException {
         String sql = "SELECT * FROM queries WHERE id = ?";
@@ -68,7 +76,6 @@ public class QueryDAO {
             query.setCustomerName(resultSet.getString("customer_name"));
             query.setCustomerEmail(resultSet.getString("customer_email"));
             query.setQueryText(resultSet.getString("query_text"));
-            query.setResponseText(resultSet.getString("response_text"));
             query.setStatus(resultSet.getString("status"));
             query.setCreatedAt(resultSet.getTimestamp("created_at"));
             return query;
@@ -78,16 +85,13 @@ public class QueryDAO {
     }
 
     public void updateQuery(Query query) throws SQLException {
-        String sql = "UPDATE queries SET response_text = ?, status = ? WHERE id = ?";
+        String sql = "UPDATE queries SET status = ? WHERE id = ?";
         PreparedStatement statement = connection.prepareStatement(sql);
-        statement.setString(1, query.getResponseText());
-        statement.setString(2, query.getStatus());
-        statement.setInt(3, query.getId());
+        statement.setString(1, query.getStatus());
+        statement.setInt(2, query.getId());
         statement.executeUpdate();
-
-        // After updating the query in the database, send an email to the customer
-        sendEmail(query.getCustomerEmail(), "Response to Your Query", query.getResponseText());
     }
+
 
     public void deleteQuery(int id) throws SQLException {
         String sql = "DELETE FROM queries WHERE id = ?";
