@@ -239,22 +239,22 @@
     <div class="gallery-item text-center">
         <img src="images/gallery1.avif" alt="Kandy Branch" class="img-fluid">
         <h4>Kandy Branch</h4>
-        <p>Nestled in the heart of Kandy, our branch offers a serene dining experience with stunning views of the hills. Enjoy authentic local flavors in a warm, welcoming atmosphere.</p>
+        <p> Kandy Branch</p>
     </div>
     <div class="gallery-item text-center">
         <img src="images/gallery2.avif" alt="Colombo Branch" class="img-fluid">
         <h4>Colombo Branch</h4>
-        <p>Located in the bustling city of Colombo, this branch is the perfect spot for urban dining with a contemporary twist. Relish a fusion of traditional and modern cuisines.</p>
+        <p>Colombo Branch</p>
     </div>
     <div class="gallery-item text-center">
-        <img src="images/gallery3.avif" alt="Galle Branch" class="img-fluid">
-        <h4>Galle Branch</h4>
-        <p>Our Galle branch offers a unique dining experience with its charming coastal ambiance. Enjoy a variety of dishes while taking in the picturesque ocean views.</p>
+        <img src="images/gallery3.avif" alt="Kegalle Branch" class="img-fluid">
+        <h4>Kegalle Branch</h4>
+        <p>Kegalle Branch</p>
     </div>
     <div class="gallery-item text-center">
         <img src="images/gallery4.jpg" alt="Negambo Branch" class="img-fluid">
         <h4>Negambo Branch</h4>
-        <p>Experience the rich flavors of Jaffna at our branch, known for its vibrant and authentic dishes. A true reflection of the region's culinary heritage.</p>
+        <p>Negambo Branch</p>
     </div>
 </div>
 
